@@ -4,7 +4,7 @@
 ?>
 <?php
 // Checkin What level user has permission to view this page
- page_require_level(3);
+ ;
 //pull out all user form database
  $all_users = find_all_user();
 ?>
@@ -37,7 +37,7 @@
 						global $epi_year;
 						$union_id;
 						$union_id = $_SESSION['union_id'];
-						
+
 						$query_year = "SELECT DISTINCT epi_year FROM epi_center WHERE union_id = $union_id";
 						$query_year_run = mysqli_query($con, $query_year);
 
@@ -63,7 +63,7 @@
 						<script type="text/javascript">
 		    				window.location = "../print_schedule/print.php";
 						</script>
-					<?php 
+					<?php
 						}
 					?>
 		            </div>

@@ -1,5 +1,5 @@
 <?php
-  $page_title = 'Upazila Statistics';
+  $page_title = 'subdistrict_ Statistics';
   require_once('../load.php');
 ?>
 <?php
@@ -20,45 +20,45 @@ if (mysqli_connect_errno())
 <div id="page-wrapper">
   <div class="row">
     <div class="col-lg-12">
-      <h1>Upazila Level Statistics</h1>
+      <h1>subdistrict_ Level Statistics</h1>
       <hr>
       	<?php
       	$epi_year;
 		$epi_year = $_SESSION['epi_year'];
 
         $district_id = isset($_GET["id"]) ? $_GET["id"] : false;
-        if ($district_id === false) 
+        if ($district_id === false)
         {
           exit("Something went wrong. Please try again.");
         }
 
-      	$sqlSelect = "SELECT DISTINCT 
-        upazila.upazila_name, upazila.upazila_id, 
-        COUNT(child_registration_details.bcg_receive_date), 
-        COUNT(child_registration_details.penta1_receive_date), 
-        COUNT(child_registration_details.penta2_receive_date), 
-        COUNT(child_registration_details.penta3_receive_date), 
+      	$sqlSelect = "SELECT DISTINCT
+        subdistrict_.subdistrict_s_name, subdistrict_.subdistrict_s_id,
+        COUNT(child_registration_details.bcg_receive_date),
+        COUNT(child_registration_details.penta1_receive_date),
+        COUNT(child_registration_details.penta2_receive_date),
+        COUNT(child_registration_details.penta3_receive_date),
         COUNT(child_registration_details.bopv1_receive_date),
         COUNT(child_registration_details.bopv2_receive_date),
-        COUNT(child_registration_details.bopv3_receive_date), 
-        COUNT(child_registration_details.pcv1_receive_date), 
-        COUNT(child_registration_details.pcv2_receive_date), 
+        COUNT(child_registration_details.bopv3_receive_date),
+        COUNT(child_registration_details.pcv1_receive_date),
+        COUNT(child_registration_details.pcv2_receive_date),
         COUNT(child_registration_details.pcv3_receive_date),
-        COUNT(child_registration_details.ipv1_receive_date), 
-        COUNT(child_registration_details.ipv2_receive_date),  
-        COUNT(child_registration_details.mr1_receive_date), 
+        COUNT(child_registration_details.ipv1_receive_date),
+        COUNT(child_registration_details.ipv2_receive_date),
+        COUNT(child_registration_details.mr1_receive_date),
         COUNT(child_registration_details.mr2_receive_date)
-        FROM division 
-        JOIN district ON division.division_id = district.division_id 
-        JOIN upazila ON district.district_id = upazila.district_id 
-        JOIN union_council ON upazila.upazila_id = union_council.upazila_id 
-        JOIN child_registration_details ON union_council.union_id = child_registration_details.union_id 
-        WHERE child_registration_details.epi_year = $epi_year 
-        AND district.district_id = $district_id 
-        GROUP BY upazila.upazila_name";
+        FROM division
+        JOIN district ON division.division_id = district.division_id
+        JOIN subdistrict_ ON district.district_id = subdistrict_.district_id
+        JOIN union_council ON subdistrict_.subdistrict_s_id = union_council.subdistrict_s_id
+        JOIN child_registration_details ON union_council.union_id = child_registration_details.union_id
+        WHERE child_registration_details.epi_year = $epi_year
+        AND district.district_id = $district_id
+        GROUP BY subdistrict_.subdistrict_s_name";
         $result = mysqli_query($con, $sqlSelect);
-            
-        if (mysqli_num_rows($result) > 0) 
+
+        if (mysqli_num_rows($result) > 0)
         {
         ?>
         <div class="table-responsive">
@@ -66,7 +66,7 @@ if (mysqli_connect_errno())
         <table id='DivisionTable' class="table table-bordered table-striped">
         <thead>
           <tr>
-                <th class="text-left">UPAZILA</th>
+                <th class="text-left">subdistrict_</th>
                 <th class="text-right">BCG</th>
                 <th class="text-right">PENTA-1</th>
                 <th class="text-right">PENTA-2</th>
@@ -85,12 +85,12 @@ if (mysqli_connect_errno())
             </tr>
         </thead>
       <?php
-            while ($row = mysqli_fetch_array($result)) 
+            while ($row = mysqli_fetch_array($result))
             {
-          ?>    
+          ?>
                 <tbody>
                 <tr>
-                    <td class="text-left"><?php  echo $row['upazila_name']; ?></td>
+                    <td class="text-left"><?php  echo $row['subdistrict_s_name']; ?></td>
                     <td class="text-right"><?php  echo $row[2]; ?></td>
                     <td class="text-right"><?php  echo $row[3]; ?></td>
                     <td class="text-right"><?php  echo $row[4]; ?></td>
@@ -106,7 +106,7 @@ if (mysqli_connect_errno())
                     <td class="text-right"><?php  echo $row[14]; ?></td>
                     <td class="text-right"><?php  echo $row[15]; ?></td>
                     <?php
-                    echo "<td class='text-right'>".'<a href=../vaccine_statistics/union_level.php?id='.$row['upazila_id'].'>VIEW</a>'. "</td>";
+                    echo "<td class='text-right'>".'<a href=../vaccine_statistics/union_level.php?id='.$row['subdistrict_s_id'].'>VIEW</a>'. "</td>";
                     ?>
                 </tr>
             <?php
@@ -114,8 +114,8 @@ if (mysqli_connect_errno())
             ?>
                 </tbody>
       </table>
-        <?php 
-      } 
+        <?php
+      }
       ?>
       </div>
       </div>

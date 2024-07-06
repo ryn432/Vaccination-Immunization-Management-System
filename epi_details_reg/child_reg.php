@@ -23,20 +23,20 @@
 	$union_id;
 	$union_id = $_SESSION['union_id'];
 
-	//upazila name start
-	global $upazila_name;
-	$query_upazila_name = "SELECT upazila.upazila_name FROM upazila JOIN union_council ON union_council.upazila_id = upazila.upazila_id WHERE union_council.union_id = $union_id";
-	$query_upazila_name_run = mysqli_query($con, $query_upazila_name);
+	//subdistrict name start
+	global $subdistrict_name;
+	$query_subdistrict_name = "SELECT subdistrict.subdistrict_name FROM subdistrict JOIN union_council ON union_council.subdistrict_id = subdistrict.subdistrict_id WHERE union_council.union_id = $union_id";
+	$query_subdistrict_name_run = mysqli_query($con, $query_subdistrict_name);
 
-	while ($row = $query_upazila_name_run->fetch_assoc())
+	while ($row = $query_subdistrict_name_run->fetch_assoc())
 	{
-		$upazila_name = $row['upazila_name'];
+		$subdistrict_name = $row['subdistrict_name'];
 	}
-	//upazila name ends
+	//subdistrict name ends
 
 	//district name start
 	global $district_name;
-	$query_district_name = "SELECT district.district_name FROM district JOIN upazila ON district.district_id = upazila.district_id JOIN union_council ON union_council.upazila_id = upazila.upazila_id WHERE union_council.union_id = $union_id";
+	$query_district_name = "SELECT district.district_name FROM district JOIN subdistrict ON district.district_id = subdistrict.district_id JOIN union_council ON union_council.subdistrict_id = subdistrict.subdistrict_id WHERE union_council.union_id = $union_id";
 	$query_district_name_run = mysqli_query($con, $query_district_name);
 
 	while ($row = $query_district_name_run->fetch_assoc())
@@ -159,8 +159,8 @@
 		</div>
 		<div class="col-lg-12">
 		<br>
-		    <label>Upazila</label>
-		    <input type="text" readonly class="form-control" name="upazila_name" placeholder="Something went wrong. Try again!" value="<?php echo (isset($upazila_name)) ? $upazila_name: ''?>">
+		    <label>SubDistrict</label>
+		    <input type="text" readonly class="form-control" name="subdistrict_name" placeholder="Something went wrong. Try again!" value="<?php echo (isset($subdistrict_name)) ? $subdistrict_name: ''?>">
 		</div>
 		<div class="col-lg-4">
 		<br>
@@ -223,7 +223,7 @@
 				$ha_name 		= $_POST['ha_name'];
 				$ha_contact 	= $_POST['ha_contact'];
 
-				$sql_insert = "INSERT INTO child_registration_details (username, union_id, ward_no, epi_year, center_id, center_name, reg_no, reg_date, name, gender, date_of_birth, birth_certificate_no, mother_name, father_name, house_road_no, village, upazila_name, district_name, union_name, sub_block_name, ha_name, ha_contact) VALUES ('$username', '$union_id', '$ward_no', '$epi_year', '$center_id', '$center_name', '$reg_no', '$reg_date', '$name', '$gender', '$date_of_birth', '$birth_certificate_no', '$mother_name', '$father_name', '$house_road_no', '$village', '$upazila_name', '$district_name', '$union_name', '$sub_block_name', '$ha_name', '$ha_contact')";
+				$sql_insert = "INSERT INTO child_registration_details (username, union_id, ward_no, epi_year, center_id, center_name, reg_no, reg_date, name, gender, date_of_birth, birth_certificate_no, mother_name, father_name, house_road_no, village, subdistrict_name, district_name, union_name, sub_block_name, ha_name, ha_contact) VALUES ('$username', '$union_id', '$ward_no', '$epi_year', '$center_id', '$center_name', '$reg_no', '$reg_date', '$name', '$gender', '$date_of_birth', '$birth_certificate_no', '$mother_name', '$father_name', '$house_road_no', '$village', '$subdistrict_name', '$district_name', '$union_name', '$sub_block_name', '$ha_name', '$ha_contact')";
 				$sql_insert_run = mysqli_query($con, $sql_insert);
 
 				$_SESSION['epic_id'] = mysqli_insert_id($con);
@@ -231,7 +231,7 @@
 				<script type="text/javascript">
 		    		window.location = "../epi_details_reg/epi_thanks.php";
 				</script>
-			<?php 
+			<?php
 				}
 			?>
 		<br><br>

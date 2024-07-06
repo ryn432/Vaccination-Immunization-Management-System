@@ -10,7 +10,7 @@
   <div class="row">
     <br>
     <div class="text-center">
-    <img src="../libs/img/epi_logo.jpg" alt="epi_logo" height="100" width="97">
+    <img src="../libs/img/epi_logg.jpg" alt="epi_logg" height="100" width="97">
     </div>
     <h1 class="text-center">ICT Based EPI Micro-plan Admin Panel</h1>
     <hr>

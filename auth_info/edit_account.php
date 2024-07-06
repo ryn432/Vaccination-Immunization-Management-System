@@ -1,11 +1,11 @@
 <?php
 $page_title = 'Edit Account';
 require_once('../load.php');
-page_require_level(3);
+;
 ?>
 
 <?php
-if(isset($_POST['submit'])) 
+if(isset($_POST['submit']))
 {
   $user_id = (int)$_POST['user_id'];
 }
@@ -16,7 +16,7 @@ if(isset($_POST['update']))
 {
   $req_fields = array('name', 'username');
   validate_fields($req_fields);
-    
+
   if(empty($errors))
   {
     $id = (int)$_SESSION['user_id'];
@@ -24,19 +24,19 @@ if(isset($_POST['update']))
     $username = remove_junk($db->escape($_POST['username']));
     $sql = "UPDATE users SET name ='{$name}', username ='{$username}'WHERE id='{$id}'";
     $result = $db->query($sql);
-      
+
     if($result && $db->affected_rows() === 1)
     {
       $session->msg('s',"Your account is updated.");
       redirect('../auth_info/edit_account.php', false);
-    } 
-    else 
+    }
+    else
     {
       $session->msg('d',' Sorry, failed to update.');
       redirect('../auth_info/edit_account.php', false);
     }
   }
-  else 
+  else
   {
     $session->msg("d", $errors);
     redirect('../auth_info/edit_account.php',false);

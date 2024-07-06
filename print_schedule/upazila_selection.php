@@ -20,7 +20,7 @@
 		            <div class="container">
 		              <h4 class="display-3">
 		              	<article>
-		              	Please select an <strong>Upazila...</strong>
+		              	Please select an <strong>SubDistrict...</strong>
 		              </article>
 		              </h4>
 		              <br>
@@ -34,35 +34,35 @@
 					  }
 					?>
 					<?php
-						global $upazila_id;
+						global $subdistrict_id;
 						$district_id;
 						$district_id = $_SESSION['district_id'];
-						
-						$query_upazila = "SELECT * FROM upazila WHERE district_id = $district_id";
-						$query_upazila_run = mysqli_query($con, $query_upazila);
+
+						$query_subdistrict = "SELECT * FROM subdistrict WHERE district_id = $district_id";
+						$query_subdistrict_run = mysqli_query($con, $query_subdistrict);
 
 						echo "<form method='post' action=''>";
-						echo "<select name='upazila_id' class='form-control form-control-lg'>";
-						while ($row = $query_upazila_run->fetch_assoc())
+						echo "<select name='subdistrict_id' class='form-control form-control-lg'>";
+						while ($row = $query_subdistrict_run->fetch_assoc())
 						{
 
-						   echo '<option value="'.$row['upazila_id'].'">'.$row['upazila_name'].'</option>';
+						   echo '<option value="'.$row['subdistrict_id'].'">'.$row['subdistrict_name'].'</option>';
 						}
 						echo "</select>";
-						echo '<br><button class="btn btn-primary" type="submit" name="submit_upazila">NEXT</button>';
+						echo '<br><button class="btn btn-primary" type="submit" name="submit_subdistrict">NEXT</button>';
 						echo "&nbsp;&nbsp;&nbsp;&nbsp;";
 						echo '<a class="btn btn-warning" href="../print_schedule/district_selection.php">PREVIOUS</a>';
 						echo '</form>';
 
-						if(isset($_POST["submit_upazila"]))
+						if(isset($_POST["submit_subdistrict"]))
 						{
-							$upazila_id = $_POST["upazila_id"];
-							$_SESSION['upazila_id'] = $upazila_id;
+							$subdistrict_id = $_POST["subdistrict_id"];
+							$_SESSION['subdistrict_id'] = $subdistrict_id;
 							?>
 						<script type="text/javascript">
 		    				window.location = "../print_schedule/union_selection.php";
 						</script>
-					<?php 
+					<?php
 						}
 					?>
 		            </div>

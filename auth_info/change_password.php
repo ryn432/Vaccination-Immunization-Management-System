@@ -1,7 +1,7 @@
 <?php
 $page_title = 'Change Password';
 require_once('../load.php');
-page_require_level(3);
+;
 ?>
 
 <?php $user = current_user();?>
@@ -24,7 +24,7 @@ if(isset($_POST['update']))
     $new = remove_junk($db->escape(sha1($_POST['new-password'])));
     $sql = "UPDATE users SET password ='{$new}' WHERE id='{$db->escape($id)}'";
     $result = $db->query($sql);
-                
+
     if($result && $db->affected_rows() === 1):
       $session->logout();
       $session->msg('s',"Login with your new password.");
@@ -33,8 +33,8 @@ if(isset($_POST['update']))
       $session->msg('d',' Sorry, failed to update.');
       redirect('../auth_info/change_password.php', false);
     endif;
-  } 
-  else 
+  }
+  else
   {
     $session->msg("d", $errors);
     redirect('../auth_info/change_password.php',false);

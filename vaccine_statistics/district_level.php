@@ -27,38 +27,38 @@ if (mysqli_connect_errno())
 		    $epi_year = $_SESSION['epi_year'];
 
         $division_id = isset($_GET["id"]) ? $_GET["id"] : false;
-        if ($division_id === false) 
+        if ($division_id === false)
         {
           exit("missing input");
         }
 
-      	$sqlSelect = "SELECT DISTINCT 
-        district.district_name, district.district_id, 
-        COUNT(child_registration_details.bcg_receive_date), 
-        COUNT(child_registration_details.penta1_receive_date), 
-        COUNT(child_registration_details.penta2_receive_date), 
-        COUNT(child_registration_details.penta3_receive_date), 
+      	$sqlSelect = "SELECT DISTINCT
+        district.district_name, district.district_id,
+        COUNT(child_registration_details.bcg_receive_date),
+        COUNT(child_registration_details.penta1_receive_date),
+        COUNT(child_registration_details.penta2_receive_date),
+        COUNT(child_registration_details.penta3_receive_date),
         COUNT(child_registration_details.bopv1_receive_date),
         COUNT(child_registration_details.bopv2_receive_date),
-        COUNT(child_registration_details.bopv3_receive_date), 
-        COUNT(child_registration_details.pcv1_receive_date), 
-        COUNT(child_registration_details.pcv2_receive_date), 
+        COUNT(child_registration_details.bopv3_receive_date),
+        COUNT(child_registration_details.pcv1_receive_date),
+        COUNT(child_registration_details.pcv2_receive_date),
         COUNT(child_registration_details.pcv3_receive_date),
-        COUNT(child_registration_details.ipv1_receive_date), 
-        COUNT(child_registration_details.ipv2_receive_date),  
-        COUNT(child_registration_details.mr1_receive_date), 
+        COUNT(child_registration_details.ipv1_receive_date),
+        COUNT(child_registration_details.ipv2_receive_date),
+        COUNT(child_registration_details.mr1_receive_date),
         COUNT(child_registration_details.mr2_receive_date)
-        FROM division 
-        JOIN district ON division.division_id = district.division_id 
-        JOIN upazila ON district.district_id = upazila.district_id 
-        JOIN union_council ON upazila.upazila_id = union_council.upazila_id 
-        JOIN child_registration_details ON union_council.union_id = child_registration_details.union_id 
-        WHERE child_registration_details.epi_year = $epi_year 
-        AND division.division_id = $division_id 
+        FROM division
+        JOIN district ON division.division_id = district.division_id
+        JOIN subdistrict ON district.district_id = subdistrict.district_id
+        JOIN union_council ON subdistrict.subdistrict_id = union_council.subdistrict_id
+        JOIN child_registration_details ON union_council.union_id = child_registration_details.union_id
+        WHERE child_registration_details.epi_year = $epi_year
+        AND division.division_id = $division_id
         GROUP BY district.district_name";
         $result = mysqli_query($con, $sqlSelect);
-            
-        if (mysqli_num_rows($result) > 0) 
+
+        if (mysqli_num_rows($result) > 0)
         {
         ?>
 <div class="table-responsive">
@@ -85,9 +85,9 @@ if (mysqli_connect_errno())
             </tr>
         </thead>
       <?php
-            while ($row = mysqli_fetch_array($result)) 
+            while ($row = mysqli_fetch_array($result))
             {
-          ?>    
+          ?>
                 <tbody>
                 <tr>
                     <td class="text-left"><?php  echo $row['district_name']; ?></td>
@@ -106,7 +106,7 @@ if (mysqli_connect_errno())
                     <td class="text-right"><?php  echo $row[14]; ?></td>
                     <td class="text-right"><?php  echo $row[15]; ?></td>
                     <?php
-                    echo "<td class='text-right'>".'<a href=../vaccine_statistics/upazila_level.php?id='.$row['district_id'].'>VIEW</a>'. "</td>";
+                    echo "<td class='text-right'>".'<a href=../vaccine_statistics/subdistrict_level.php?id='.$row['district_id'].'>VIEW</a>'. "</td>";
                     ?>
                 </tr>
             <?php
@@ -114,8 +114,8 @@ if (mysqli_connect_errno())
             ?>
                 </tbody>
       </table>
-        <?php 
-      } 
+        <?php
+      }
       ?>
       </div>
       </div>

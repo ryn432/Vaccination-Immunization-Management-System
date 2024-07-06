@@ -20,25 +20,25 @@ if (mysqli_connect_errno())
 mysqli_select_db($con,"central_db");
 
 function add_user($data)
-{   
+{
   global $con;
   $holiday_name   = $data['holiday_name'];
   $holiday_date   =   $data['holiday_date'];
   $holiday_month  =   $data['holiday_month'];
   $holiday_year     =   $data['holiday_year'];
 
-  $query = mysqli_query($con,"Insert INTO holiday_final(holiday_name, holiday_date, holiday_month, holiday_year) VALUES('$holiday_name','$holiday_date','$holiday_month','$holiday_year')") or die(mysqli_error()); 
+  $query = mysqli_query($con,"Insert INTO holiday_final(holiday_name, holiday_date, holiday_month, holiday_year) VALUES('$holiday_name','$holiday_date','$holiday_month','$holiday_year')") or die(mysqli_error());
   if($query)
-  { 
+  {
     return true;
    }
   else
-  { 
-    return false; 
+  {
+    return false;
   }
 }
 
-if(isset($_POST['action']) AND $_POST['action']=='useradd') 
+if(isset($_POST['action']) AND $_POST['action']=='useradd')
 {
   add_user($_POST);
   $message = "Holiday added successfully.";
@@ -61,14 +61,14 @@ if(isset($_POST['action']) AND $_POST['action']=='useradd')
           <th>Holiday Month</th>
           <th>Holiday Year</th>
         </tr>
-        
+
         <tr>
           <td><input name="holiday_name" class="form-control" type="text" required></td>
           <td><input name="holiday_date" class="form-control"  min="1" max="31" type="number" required></td>
           <td><input name="holiday_month" class="form-control" min="1" max="12" type="number" required></td>
-          <td><input name="holiday_year" class="form-control" min="2018" max="9999" type="number" required></td>
+          <td><input name="holiday_year" class="form-control" min="2024" max="9999" type="number" required></td>
         </tr>
-        
+
         <tr>
             <td colspan="6">
               <input type="hidden" id="action" name="action" value="useradd">

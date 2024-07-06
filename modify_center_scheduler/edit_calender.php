@@ -4,7 +4,7 @@
 ?>
 <?php
 // Checkin What level user has permission to view this page
- page_require_level(3);
+ ;
 //pull out all user form database
  $all_users = find_all_user();
 ?>
@@ -12,24 +12,24 @@
 <?php
 require_once("../modify_center_scheduler/db_connect.php");
 if(count($_POST)>0) {
-	$sql = "UPDATE epi_schedule set 
-	ward_no='" . $_POST["ward_no"] . "', 
-	sub_block_name='" . $_POST["sub_block_name"] . "', 
-	center_name='" . $_POST["center_name"] . "', 
-	from_house='" . $_POST["from_house"] . "', 
-	to_house='" . $_POST["to_house"] . "', 
-	jan_date='" . $_POST["jan_date"] . "', 
-	feb_date='" . $_POST["feb_date"] . "', 
-	mar_date='" . $_POST["mar_date"] . "', 
-	apr_date='" . $_POST["apr_date"] . "', 
-	may_date='" . $_POST["may_date"] . "', 
-	jun_date='" . $_POST["jun_date"] . "', 
-	jul_date='" . $_POST["jul_date"] . "', 
-	aug_date='" . $_POST["aug_date"] . "', 
-	sep_date='" . $_POST["sep_date"] . "', 
-	oct_date='" . $_POST["oct_date"] . "', 
-	nov_date='" . $_POST["nov_date"] . "', 
-	dec_date='" . $_POST["dec_date"] . "', 
+	$sql = "UPDATE epi_schedule set
+	ward_no='" . $_POST["ward_no"] . "',
+	sub_block_name='" . $_POST["sub_block_name"] . "',
+	center_name='" . $_POST["center_name"] . "',
+	from_house='" . $_POST["from_house"] . "',
+	to_house='" . $_POST["to_house"] . "',
+	jan_date='" . $_POST["jan_date"] . "',
+	feb_date='" . $_POST["feb_date"] . "',
+	mar_date='" . $_POST["mar_date"] . "',
+	apr_date='" . $_POST["apr_date"] . "',
+	may_date='" . $_POST["may_date"] . "',
+	jun_date='" . $_POST["jun_date"] . "',
+	jul_date='" . $_POST["jul_date"] . "',
+	aug_date='" . $_POST["aug_date"] . "',
+	sep_date='" . $_POST["sep_date"] . "',
+	oct_date='" . $_POST["oct_date"] . "',
+	nov_date='" . $_POST["nov_date"] . "',
+	dec_date='" . $_POST["dec_date"] . "',
 	ha_details='" . $_POST["ha_details"] . "' WHERE id='" . $_POST["id"] . "'";
 	mysqli_query($mysqli,$sql);
 	$message = "Record is modified successfully";
@@ -105,7 +105,7 @@ $row = mysqli_fetch_array($result);
 					<tr>
 						<td><input type="text" name="ha_details" required class="form-control" value="<?php echo $row['ha_details']; ?>"></td>
 					</tr>
-				</table>	
+				</table>
 			</div>
 		</div>
 		<div class="row">

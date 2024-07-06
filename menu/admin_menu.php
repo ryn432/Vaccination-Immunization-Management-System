@@ -4,7 +4,7 @@
     <div class="input-group custom-search-form">
       <span class="h5">
         <?php
-        $date = new DateTime("now", new DateTimeZone('Asia/Dhaka') );
+        $date = new DateTime("now", new DateTimeZone('Africa/Douala') );
         echo $date->format('F j, Y | ');
         echo $date->format('l');
         echo $date->format(', g:i A');
@@ -27,7 +27,7 @@
         <a href="../data_info/Division.php">
           <i class="glyphicon glyphicon-upload"></i>
           <span>Upload Division List</span>
-        </a>  
+        </a>
       </li>
       <li>
         <a href="../data_info/District.php">
@@ -38,7 +38,7 @@
       <li>
         <a href="../data_info/Upazilla.php">
           <i class="glyphicon glyphicon-upload"></i>
-          <span>Upload Upazila List</span>
+          <span>Upload SubDistrict List</span>
         </a>
       </li>
       <li>
@@ -64,7 +64,7 @@
         <a href="../holiday_info/holiday.php">
           <i class="glyphicon glyphicon-plus-sign"></i>
           <span>Create Holiday Schedule</span>
-        </a> 
+        </a>
       </li>
       <li>
         <a href="../holiday_info/view_holiday.php">
@@ -83,19 +83,19 @@
         <a href="../schedule_info/mr_start.php">
           <i class="glyphicon glyphicon-check"></i>
           <span>Create Mon-Thu Schedule</span>
-        </a> 
+        </a>
       </li>
       <li>
         <a href="../schedule_info/sw_start.php">
           <i class="glyphicon glyphicon-check"></i>
           <span>Create Sun-Wed Schedule</span>
-        </a> 
+        </a>
       </li>
       <li>
         <a href="../schedule_info/at_start.php">
           <i class="glyphicon glyphicon-check"></i>
           <span>Create Sat-Tue Schedule</span>
-        </a> 
+        </a>
       </li>
       <li>
         <a href="../view_epi_schedule/index.php">
@@ -114,25 +114,25 @@
         <a href="../view_center_scheduler/index.php">
           <i class="glyphicon glyphicon-tasks"></i>
           <span>View Center Scheduler</span>
-        </a> 
+        </a>
       </li>
       <li>
         <a href="../modify_center_scheduler/index.php">
           <i class="glyphicon glyphicon-tasks"></i>
           <span>Modify Center Scheduler</span>
-        </a> 
+        </a>
       </li>
       <li>
         <a href="../change_center_scheduler/division_selection.php">
           <i class="glyphicon glyphicon-tasks"></i>
           <span>Change Center Scheduler</span>
-        </a> 
+        </a>
       </li>
       <li>
         <a href="../year_wise_scheduler/move_yearly_scheduler.php">
           <i class="glyphicon glyphicon-tasks"></i>
           <span>Year Wise Scheduler</span>
-        </a> 
+        </a>
       </li>
     </ul>
   </li>
@@ -140,14 +140,14 @@
     <a href="../rechange_epi_schedule/rechange_epi_scheduler.php">
       <i class="glyphicon glyphicon-repeat"></i>
       <span>Rechange EPI Schedule</span>
-    </a> 
+    </a>
   </li>
   <li>
     <a href="../print_schedule/division_selection.php">
       <i class="glyphicon glyphicon-print"></i>
       <span>Print EPI Schedule</span>
-    </a> 
-  </li>  
+    </a>
+  </li>
   <li>
     <a>
       <i class="glyphicon glyphicon-folder-close"></i> Child Information<span class="fa arrow"></span>
@@ -157,13 +157,13 @@
         <a href="../epi_details_reg/index.php">
           <i class="glyphicon glyphicon-collapse-up"></i>
           <span>Registration</span>
-        </a> 
+        </a>
       </li>
       <li>
         <a href="../epi_details_reg/child_mod.php">
           <i class="glyphicon glyphicon-collapse-down"></i>
           <span>Modification</span>
-        </a> 
+        </a>
       </li>
     </ul>
   </li>

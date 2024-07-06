@@ -4,7 +4,7 @@
 ?>
 <?php
 // Checkin What level user has permission to view this page
- page_require_level(3);
+ ;
 //pull out all user form database
  $all_users = find_all_user();
 ?>
@@ -30,9 +30,9 @@ $countryResult = $db_handle->runQuery("SELECT DISTINCT holiday_year FROM holiday
             <div class="col-md-4">
                 <select id="Place" name="holiday_year[]" class="form-control form-control-lg">
                         <?php
-                        if (! empty($countryResult)) 
+                        if (! empty($countryResult))
                         {
-                            foreach ($countryResult as $key => $value) 
+                            foreach ($countryResult as $key => $value)
                             {
                                 echo '<option value="' . $countryResult[$key]['holiday_year'] . '">' . $countryResult[$key]['holiday_year'] . '</option>';
                             }
@@ -48,7 +48,7 @@ $countryResult = $db_handle->runQuery("SELECT DISTINCT holiday_year FROM holiday
             <a href="../holiday_info/view_add_year.php" type="button" class="btn btn-warning btn-md btn-block" id="Addyear" role="button">ADD HOLIDAY</a>
             </div>
             <?php
-            if (! empty($_POST['holiday_year'])) 
+            if (! empty($_POST['holiday_year']))
             {
                 echo "<table class='table table-bordered' width='100%'>
                 <tbody>
@@ -61,17 +61,17 @@ $countryResult = $db_handle->runQuery("SELECT DISTINCT holiday_year FROM holiday
                     <th class='text-right'>Delete</th>
                 </tr>";
             ?>
-                         
+
             <?php
                 $query = "SELECT * from holiday_final";
                 $i = 0;
                 $selectedOptionCount = count($_POST['holiday_year']);
                 $selectedOption = "";
-                
-                while ($i < $selectedOptionCount) 
+
+                while ($i < $selectedOptionCount)
                 {
                     $selectedOption = $selectedOption . "'" . $_POST['holiday_year'][$i] . "'";
-                    if ($i < $selectedOptionCount - 1) 
+                    if ($i < $selectedOptionCount - 1)
                     {
                         $selectedOption = $selectedOption . ", ";
                     }
@@ -80,9 +80,9 @@ $countryResult = $db_handle->runQuery("SELECT DISTINCT holiday_year FROM holiday
                 $query = $query . " WHERE holiday_year in (" . $selectedOption . ") ORDER BY holiday_month ASC";
                 $result = $db_handle->runQuery($query);
             }
-            if (! empty($result)) 
+            if (! empty($result))
             {
-                foreach ($result as $key => $value) 
+                foreach ($result as $key => $value)
                 {
                 ?>
                     <tr>
@@ -100,7 +100,7 @@ $countryResult = $db_handle->runQuery("SELECT DISTINCT holiday_year FROM holiday
                 <?php
                 }
                 ?>
-                    
+
                 </tbody>
             </table>
             <?php

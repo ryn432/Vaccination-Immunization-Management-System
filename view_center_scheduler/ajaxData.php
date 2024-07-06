@@ -5,14 +5,14 @@ include('../view_center_scheduler/db_connect.php');
 /*$conn = mysqli_connect("localhost", "root", "", "central_db");
 $sqlUnionId = "SELECT union_id FROM epi_center WHERE union_id = '" . $_POST['union_id'] . "'";
 $resultSqlUnionId = mysqli_query($conn, $sqlUnionId);
-if (mysqli_num_rows($resultSqlUnionId) != null) 
+if (mysqli_num_rows($resultSqlUnionId) != null)
 {
-    while($row = mysqli_fetch_assoc($resultSqlUnionId)) 
+    while($row = mysqli_fetch_assoc($resultSqlUnionId))
     {
         $union_id = $row["union_id"];
     }
-} 
-else 
+}
+else
 {
     $union_id = 0;
 }*/
@@ -29,7 +29,7 @@ if(isset($_POST["division_id"]) && !empty($_POST["division_id"]))
     if($rowCount > 0)
     {
         echo '<option value="">Select District</option>';
-        
+
         while($row = $query->fetch_assoc())
         {
             echo '<option value="'.$row['district_id'].'">'.$row['district_name'].'</option>';
@@ -43,32 +43,32 @@ if(isset($_POST["division_id"]) && !empty($_POST["division_id"]))
 
 if(isset($_POST["district_id"]) && !empty($_POST["district_id"]))
 {
-    //Get all upazila data
-    $query = $mysqli->query("SELECT * FROM upazila WHERE district_id = ".$_POST['district_id']." ORDER BY upazila_name ASC");
+    //Get all subdistrict data
+    $query = $mysqli->query("SELECT * FROM subdistrict WHERE district_id = ".$_POST['district_id']." ORDER BY subdistrict_name ASC");
 
     //Count total number of rows
     $rowCount = $query->num_rows;
 
-    //Display upazilas list
+    //Display subdistrict list
     if($rowCount > 0)
     {
-        echo '<option value="">Select Upazila</option>';
-        
+        echo '<option value="">Select SubDistrict</option>';
+
         while($row = $query->fetch_assoc())
         {
-            echo '<option value="'.$row['upazila_id'].'">'.$row['upazila_name'].'</option>';
+            echo '<option value="'.$row['subdistrict_id'].'">'.$row['subdistrict_name'].'</option>';
         }
     }
     else
     {
-        echo '<option value="">Upazila Not Available</option>';
+        echo '<option value="">SubDistrict Not Available</option>';
     }
 }
 
-if(isset($_POST["upazila_id"]) && !empty($_POST["upazila_id"]))
+if(isset($_POST["subdistrict_id"]) && !empty($_POST["subdistrict_id"]))
 {
     //Get all union data
-    $query = $mysqli->query("SELECT * FROM union_council WHERE upazila_id = ".$_POST['upazila_id']." ORDER BY union_name ASC");
+    $query = $mysqli->query("SELECT * FROM union_council WHERE subdistrict_id = ".$_POST['subdistrict_id']." ORDER BY union_name ASC");
 
     //Count total number of rows
     $rowCount = $query->num_rows;
@@ -77,7 +77,7 @@ if(isset($_POST["upazila_id"]) && !empty($_POST["upazila_id"]))
     if($rowCount > 0)
     {
         echo '<option value="">Select Union</option>';
-        
+
         while($row = $query->fetch_assoc())
         {
             echo '<option value="'.$row['union_id'].'">'.$row['union_name'].'</option>';
@@ -91,7 +91,7 @@ if(isset($_POST["upazila_id"]) && !empty($_POST["upazila_id"]))
 
 if(isset($_POST["union_id"]) && !empty($_POST["union_id"]))
 {
-    
+
     $union_id;
     $union_id = $_POST["union_id"];
 
@@ -107,7 +107,7 @@ if(isset($_POST["union_id"]) && !empty($_POST["union_id"]))
     if($rowCount > 0)
     {
         echo '<option value="">Select Year</option>';
-        
+
         while($row = $query->fetch_assoc())
         {
             echo '<option value="'.$row['epi_year'].'">'.$row['epi_year'].'</option>';
@@ -122,7 +122,7 @@ if(isset($_POST["union_id"]) && !empty($_POST["union_id"]))
 //edited
 if(isset($_POST["epi_year"]) && !empty($_POST["epi_year"]))
 {
-    
+
     $epi_year;
     $epi_year = $_POST["epi_year"];
 

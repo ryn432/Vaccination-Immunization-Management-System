@@ -92,12 +92,12 @@
                                     <div class="huge">
                                       <?php
                                         $conn = mysqli_connect("localhost", "root", "", "central_db");
-                                        $result = $db->query("SELECT COUNT(*) FROM upazila");
+                                        $result = $db->query("SELECT COUNT(*) FROM subdistrict");
                                         $row = $result->fetch_row();
                                         echo $row[0];
                                       ?>
                                     </div>
-                                    <div>Upazilas</div>
+                                    <div>Sub-Districts</div>
                                 </div>
                             </div>
                         </div>

@@ -22,7 +22,7 @@ if (isset($_POST["import"]))
         while (($column = fgetcsv($file, 10000, ",")) !== FALSE) 
         {
             $sqlInsertdiv = "INSERT INTO epi_center_temp (center_id, ward_no, sub_block_name, center_name, from_house, to_house, center_type, ha_details, union_id, epi_year) values ('" . $column[0] . "','" . $column[1] . "','" . $column[2] . "','" . $column[3] . "','" . $column[4] . "','" . $column[5] . "','" . $column[6] . "','" . $column[7] . "','" . $column[8] . "','" . $column[9] . "')";
-            $resultdiv = mysqli_query($conn, $sqlInsertdiv);
+            $resultdiv = mysqli_query($conn, $sqlInsertdiv); 
             
             if (!empty($resultdiv)) 
             {

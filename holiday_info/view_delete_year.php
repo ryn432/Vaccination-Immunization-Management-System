@@ -4,7 +4,7 @@
 ?>
 <?php
 // Checkin What level user has permission to view this page
- page_require_level(3);
+ ;
 //pull out all user form database
  $all_users = find_all_user();
 ?>
@@ -24,7 +24,7 @@ if (!$conn) {
 }
 
 // sql to delete a record
-$sql = "DELETE FROM holiday_final WHERE id = $id"; 
+$sql = "DELETE FROM holiday_final WHERE id = $id";
 
 if (mysqli_query($conn, $sql)) {
     mysqli_close($conn);

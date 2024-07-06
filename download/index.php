@@ -1,7 +1,7 @@
 <?php
   $page_title = 'Download';
   require_once('../load.php');
-  page_require_level(3);
+  ;
 ?>
 
 <?php

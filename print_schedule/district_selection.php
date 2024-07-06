@@ -37,7 +37,7 @@
 						global $district_id;
 						$division_id;
 						$division_id = $_SESSION['division_id'];
-						
+
 						$query_district = "SELECT * FROM district WHERE division_id = $division_id";
 						$query_district_run = mysqli_query($con, $query_district);
 
@@ -60,9 +60,9 @@
 							$_SESSION['district_id'] = $district_id;
 							?>
 						<script type="text/javascript">
-		    				window.location = "../print_schedule/upazila_selection.php";
+		    				window.location = "../print_schedule/subdistrict_selection.php";
 						</script>
-					<?php 
+					<?php
 						}
 					?>
 		            </div>

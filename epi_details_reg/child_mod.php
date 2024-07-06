@@ -31,7 +31,7 @@ $mother_name    = "";
 $father_name    = "";
 $house_road_no  = "";
 $village        = "";
-$upazila_name   = "";
+$subdistrict_name   = "";
 $district_name  = "";
 $union_name     = "";
 $sub_block_name = "";
@@ -85,8 +85,8 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 try
 {
     $connect = mysqli_connect($host, $user, $password, $database);
-} 
-catch (mysqli_sql_exception $ex) 
+}
+catch (mysqli_sql_exception $ex)
 {
     echo 'Error';
 }
@@ -108,7 +108,7 @@ function getPosts()
     $posts[14]  = $_POST['father_name'];
     $posts[15]  = $_POST['house_road_no'];
     $posts[16]  = $_POST['village'];
-    $posts[17]  = $_POST['upazila_name'];
+    $posts[17]  = $_POST['subdistrict_name'];
     $posts[18]  = $_POST['district_name'];
     $posts[19]  = $_POST['union_name'];
     $posts[20]  = $_POST['sub_block_name'];
@@ -154,12 +154,12 @@ if(isset($_POST['display_details']))
     try
     {
         $search_Result = mysqli_query($connect, $search_Query);
-        
+
         if($search_Result)
         {
             if(mysqli_num_rows($search_Result))
             {
-            
+
                 while($row = mysqli_fetch_array($search_Result))
                 {
                     $epic_id = $row['epic_id'];
@@ -176,7 +176,7 @@ if(isset($_POST['display_details']))
                     $father_name = $row['father_name'];
                     $house_road_no = $row['house_road_no'];
                     $village = $row['village'];
-                    $upazila_name = $row['upazila_name'];
+                    $subdistrict_name = $row['subdistrict_name'];
                     $district_name = $row['district_name'];
                     $union_name = $row['union_name'];
                     $sub_block_name = $row['sub_block_name'];
@@ -208,7 +208,7 @@ if(isset($_POST['display_details']))
                     $pcv1_comment = $row['pcv1_comment'];
 
                     $pcv2_receive_date = $row['pcv2_receive_date'];
-                    $pcv2_comment = $row['pcv2_comment'];
+                    $pcv2_comment = $row['pcv2_comment']; 
 
                     $pcv3_receive_date = $row['pcv3_receive_date'];
                     $pcv3_comment = $row['pcv3_comment'];
@@ -238,7 +238,7 @@ if(isset($_POST['display_details']))
             $message = "Something went wrong. Please try again.";
         }
     }
-    catch (Exception $ex) 
+    catch (Exception $ex)
     {
         $type = "error_search";
         $message = "Something went wrong. Please try again.";
@@ -250,40 +250,40 @@ if(isset($_POST['display_details']))
 if(isset($_POST['update_details']))
 {
     $data = getPosts();
-    $update_Query = "UPDATE child_registration_details SET 
+    $update_Query = "UPDATE child_registration_details SET
     bcg_receive_date='$data[24]',
-    bcg_comment='$data[26]', 
-    penta1_receive_date='$data[28]', 
-    penta1_comment='$data[30]', 
-    bopv1_receive_date='$data[32]', 
-    bopv1_comment='$data[34]', 
-    pcv1_receive_date='$data[36]', 
-    pcv1_comment='$data[38]', 
-    ipv1_receive_date='$data[40]', 
-    ipv1_comment='$data[42]', 
-    penta2_receive_date='$data[44]', 
-    penta2_comment='$data[46]', 
-    bopv2_receive_date='$data[48]', 
-    bopv2_comment='$data[50]', 
-    pcv2_receive_date='$data[52]', 
-    pcv2_comment='$data[54]', 
-    penta3_receive_date='$data[56]', 
-    penta3_comment='$data[58]', 
-    bopv3_receive_date='$data[60]', 
-    bopv3_comment='$data[62]', 
-    pcv3_receive_date='$data[64]', 
-    pcv3_comment='$data[66]', 
-    ipv2_receive_date='$data[68]', 
-    ipv2_comment='$data[70]', 
-    mr1_receive_date='$data[72]', 
-    mr1_comment='$data[74]', 
-    mr2_receive_date='$data[76]', 
+    bcg_comment='$data[26]',
+    penta1_receive_date='$data[28]',
+    penta1_comment='$data[30]',
+    bopv1_receive_date='$data[32]',
+    bopv1_comment='$data[34]',
+    pcv1_receive_date='$data[36]',
+    pcv1_comment='$data[38]',
+    ipv1_receive_date='$data[40]',
+    ipv1_comment='$data[42]',
+    penta2_receive_date='$data[44]',
+    penta2_comment='$data[46]',
+    bopv2_receive_date='$data[48]',
+    bopv2_comment='$data[50]',
+    pcv2_receive_date='$data[52]',
+    pcv2_comment='$data[54]',
+    penta3_receive_date='$data[56]',
+    penta3_comment='$data[58]',
+    bopv3_receive_date='$data[60]',
+    bopv3_comment='$data[62]',
+    pcv3_receive_date='$data[64]',
+    pcv3_comment='$data[66]',
+    ipv2_receive_date='$data[68]',
+    ipv2_comment='$data[70]',
+    mr1_receive_date='$data[72]',
+    mr1_comment='$data[74]',
+    mr2_receive_date='$data[76]',
     mr2_comment='$data[78]' WHERE epic_id = $data[2]";
 
     try
     {
         $update_Result = mysqli_query($connect, $update_Query);
-        
+
         if($update_Result)
         {
             if(mysqli_affected_rows($connect) > 0)
@@ -297,8 +297,8 @@ if(isset($_POST['update_details']))
                 $message = "No change has been noticed.";
             }
         }
-    } 
-    catch (Exception $ex) 
+    }
+    catch (Exception $ex)
     {
         $type = "error";
         $message = "Something went wrong. Please try again.";
@@ -310,7 +310,7 @@ if(isset($_POST['update_details']))
 
     $sql2 = "UPDATE child_registration_details SET  penta1_receive_date = NULL WHERE penta1_receive_date = '0000-00-00'";
     mysqli_query($connect, $sql2);
-    
+
 
     $sql3 = "UPDATE child_registration_details SET penta2_receive_date = NULL WHERE penta2_receive_date = '0000-00-00'";
     mysqli_query($connect, $sql3);
@@ -319,7 +319,7 @@ if(isset($_POST['update_details']))
     $sql4 = "UPDATE child_registration_details SET penta3_receive_date = NULL WHERE penta3_receive_date = '0000-00-00'";
     mysqli_query($connect, $sql4);
 
-    
+
     $sql5 = "UPDATE child_registration_details SET bopv1_receive_date = NULL WHERE bopv1_receive_date = '0000-00-00'";
     mysqli_query($connect, $sql5);
 
@@ -444,8 +444,8 @@ if(isset($_POST['update_details']))
         </div>
         <div class="col-lg-3">
         <br>
-            <label>Upazila</label>
-            <input type="text" readonly class="form-control" name="upazila_name" placeholder="No available data." value="<?php echo $upazila_name;?>">
+            <label>SubDistrict</label>
+            <input type="text" readonly class="form-control" name="subdistrict_name" placeholder="No available data." value="<?php echo $subdistrict_name;?>">
         </div>
         <div class="col-lg-3">
         <br>
@@ -510,9 +510,9 @@ if(isset($_POST['update_details']))
                     BCG<br>
                     <small>
                         <strong>
-                        Due: 
+                        Due:
                         </strong>
-                        <?php 
+                        <?php
                         $date = date_create($date_of_birth);
                         date_add($date, date_interval_create_from_date_string('42 days'));
                         echo date_format($date, 'm-d-Y');
@@ -531,9 +531,9 @@ if(isset($_POST['update_details']))
                     PENTA-1<br>
                     <small>
                         <strong>
-                        Due: 
+                        Due:
                         </strong>
-                        <?php 
+                        <?php
                         $date = date_create($date_of_birth);
                         date_add($date, date_interval_create_from_date_string('42 days'));
                         echo date_format($date, 'm-d-Y');
@@ -552,9 +552,9 @@ if(isset($_POST['update_details']))
                     BOPV-1<br>
                     <small>
                         <strong>
-                        Due: 
+                        Due:
                         </strong>
-                        <?php 
+                        <?php
                         $date = date_create($date_of_birth);
                         date_add($date, date_interval_create_from_date_string('42 days'));
                         echo date_format($date, 'm-d-Y');
@@ -573,9 +573,9 @@ if(isset($_POST['update_details']))
                     PCV-1<br>
                     <small>
                         <strong>
-                        Due: 
+                        Due:
                         </strong>
-                        <?php 
+                        <?php
                         $date = date_create($date_of_birth);
                         date_add($date, date_interval_create_from_date_string('42 days'));
                         echo date_format($date, 'm-d-Y');
@@ -594,9 +594,9 @@ if(isset($_POST['update_details']))
                     IPV-1<br>
                     <small>
                         <strong>
-                        Due: 
+                        Due:
                         </strong>
-                        <?php 
+                        <?php
                         $date = date_create($date_of_birth);
                         date_add($date, date_interval_create_from_date_string('42 days'));
                         echo date_format($date, 'm-d-Y');
@@ -615,9 +615,9 @@ if(isset($_POST['update_details']))
                     PENTA-2<br>
                     <small>
                         <strong>
-                        Due: 
+                        Due:
                         </strong>
-                        <?php 
+                        <?php
                         $date = date_create($date_of_birth);
                         date_add($date, date_interval_create_from_date_string('70 days'));
                         echo date_format($date, 'm-d-Y');
@@ -636,9 +636,9 @@ if(isset($_POST['update_details']))
                     BOPV-2<br>
                     <small>
                         <strong>
-                        Due: 
+                        Due:
                         </strong>
-                        <?php 
+                        <?php
                         $date = date_create($date_of_birth);
                         date_add($date, date_interval_create_from_date_string('70 days'));
                         echo date_format($date, 'm-d-Y');
@@ -657,9 +657,9 @@ if(isset($_POST['update_details']))
                     PCV-2<br>
                     <small>
                         <strong>
-                        Due: 
+                        Due:
                         </strong>
-                        <?php 
+                        <?php
                         $date = date_create($date_of_birth);
                         date_add($date, date_interval_create_from_date_string('70 days'));
                         echo date_format($date, 'm-d-Y');
@@ -678,9 +678,9 @@ if(isset($_POST['update_details']))
                     PENTA-3<br>
                     <small>
                         <strong>
-                        Due: 
+                        Due:
                         </strong>
-                        <?php 
+                        <?php
                         $date = date_create($date_of_birth);
                         date_add($date, date_interval_create_from_date_string('98 days'));
                         echo date_format($date, 'm-d-Y');
@@ -699,9 +699,9 @@ if(isset($_POST['update_details']))
                     BOPV-3<br>
                     <small>
                         <strong>
-                        Due: 
+                        Due:
                         </strong>
-                        <?php 
+                        <?php
                         $date = date_create($date_of_birth);
                         date_add($date, date_interval_create_from_date_string('98 days'));
                         echo date_format($date, 'm-d-Y');
@@ -720,9 +720,9 @@ if(isset($_POST['update_details']))
                     PCV-3<br>
                     <small>
                         <strong>
-                        Due: 
+                        Due:
                         </strong>
-                        <?php 
+                        <?php
                         $date = date_create($date_of_birth);
                         date_add($date, date_interval_create_from_date_string('98 days'));
                         echo date_format($date, 'm-d-Y');
@@ -741,9 +741,9 @@ if(isset($_POST['update_details']))
                     IPV-2<br>
                     <small>
                         <strong>
-                        Due: 
+                        Due:
                         </strong>
-                        <?php 
+                        <?php
                         $date = date_create($date_of_birth);
                         date_add($date, date_interval_create_from_date_string('98 days'));
                         echo date_format($date, 'm-d-Y');
@@ -762,9 +762,9 @@ if(isset($_POST['update_details']))
                     MR-1<br>
                     <small>
                         <strong>
-                        Due: 
+                        Due:
                         </strong>
-                        <?php 
+                        <?php
                         $date = date_create($date_of_birth);
                         date_add($date, date_interval_create_from_date_string('252 days'));
                         echo date_format($date, 'm-d-Y');
@@ -783,9 +783,9 @@ if(isset($_POST['update_details']))
                     MR-2<br>
                     <small>
                         <strong>
-                        Due: 
+                        Due:
                         </strong>
-                        <?php 
+                        <?php
                         $date = date_create($date_of_birth);
                         date_add($date, date_interval_create_from_date_string('420 days'));
                         echo date_format($date, 'm-d-Y');

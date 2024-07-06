@@ -5,7 +5,7 @@ require_once('../load.php');
 
 <?php
 // Checkin What level user has permission to view this page
-page_require_level(3);
+;
 //pull out all user form database
 $all_users = find_all_user();
 ?>

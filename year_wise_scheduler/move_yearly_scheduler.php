@@ -20,7 +20,7 @@
             <div class="container">
               <h4 class="display-3">
               	<article>
-              	You are going to move all EPI Center Session Schedule from 2018 to your chosen year that you will select.
+              	You are going to move all EPI Center Session Schedule from 2024 to your chosen year that you will select.
               	Please select the year from the drop down menu for moving EPI Center Session Schedule.
               	<br><br>
               	<strong>Noted That,</strong> All the EPI Center Information will be updated based on selected year schedule. Session Schedule will be remain same as previous year. 
@@ -105,7 +105,7 @@
 				}
 				else
 				{
-				    $epi_year=2018;
+				    $epi_year=2024;
 				}	
 			?>
             </div>

@@ -4,7 +4,7 @@
 ?>
 <?php
 // Checkin What level user has permission to view this page
- page_require_level(3);
+ ;
 //pull out all user form database
  $all_users = find_all_user();
 ?>
@@ -12,10 +12,10 @@
 <?php
 require_once("../holiday_info/view_db_connect.php");
 if(count($_POST)>0) {
-	$sql = "UPDATE holiday_final set 
-	holiday_name='" . $_POST["holiday_name"] . "', 
-	holiday_date='" . $_POST["holiday_date"] . "', 
-	holiday_month='" . $_POST["holiday_month"] . "', 
+	$sql = "UPDATE holiday_final set
+	holiday_name='" . $_POST["holiday_name"] . "',
+	holiday_date='" . $_POST["holiday_date"] . "',
+	holiday_month='" . $_POST["holiday_month"] . "',
 	holiday_year='" . $_POST["holiday_year"] . "' WHERE id='" . $_POST["id"] . "'";
 	mysqli_query($mysqli,$sql);
 	$message = "Record modified successfully.";

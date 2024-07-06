@@ -12,7 +12,7 @@
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script>
-    window.load=$( document ).ready(function() 
+    window.load=$( document ).ready(function()
     {
       $.ajax(
       {
@@ -22,13 +22,13 @@
         {
           $('#division').html(html);
         }
-      });	   
-		});  
-					
-		$( document ).ready(function() 
+      });
+		});
+
+		$( document ).ready(function()
     {
 			$('#division').on('change',function()
-      {//change function on division to display all district 
+      {//change function on division to display all district
         var divisionID = $(this).val();
         if(divisionID)
         {
@@ -40,21 +40,21 @@
             success:function(html)
             {
               $('#district').html(html);
-              $('#upazila').html('<option value="">Select District First</option>'); 
-              $('#union').html('<option value="">Select Upazila First</option>');
-              $('#epi_year').html('<option value="">Select Union First</option>');  
+              $('#subdistrict').html('<option value="">Select District First</option>');
+              $('#union').html('<option value="">Select SubDistrict First</option>');
+              $('#epi_year').html('<option value="">Select Union First</option>');
             }
-          }); 
+          });
         }
         else
         {
           $('#district').html('<option value="">Select Division First</option>');
-          $('#upazila').html('<option value="">Select District First</option>');
+          $('#subdistrict').html('<option value="">Select District First</option>');
         }
       });
-    
+
     $('#district').on('change',function()
-    {//change district to display all upazila
+    {//change district to display all subdistrict
       var districtID = $(this).val();
       if(districtID)
       {
@@ -65,40 +65,40 @@
           data:'district_id='+districtID,
           success:function(html)
           {
-            $('#upazila').html(html);
+            $('#subdistrict').html(html);
           }
-        }); 
+        });
       }
       else
       {
-        $('#upazila').html('<option value="">Select District First</option>');
+        $('#subdistrict').html('<option value="">Select District First</option>');
       }
     });
 
-    $('#upazila').on('change',function()
-    {//change upazila to display all union
-      var upazilaID = $(this).val();
-      if(upazilaID)
+    $('#subdistrict').on('change',function()
+    {//change subdistrict to display all union
+      var subdistrictID = $(this).val();
+      if(subdistrictID)
       {
         $.ajax(
         {
           type:'POST',
           url:'../modify_center_scheduler/ajaxData.php',
-          data:'upazila_id='+upazilaID,
+          data:'subdistrict_id='+subdistrictID,
           success:function(html)
           {
             $('#union').html(html);
           }
-        }); 
+        });
       }
       else
       {
-        $('#union').html('<option value="">Select Upazila First</option>'); 
+        $('#union').html('<option value="">Select SubDistrict First</option>');
       }
     });
 
     $('#union').on('change',function()
-    {//change upazila to display all union
+    {//change subdistrict to display all union
       var unionID = $(this).val();
       if(unionID)
       {
@@ -111,16 +111,16 @@
           {
             $('#epi_year').html(html);
           }
-        }); 
+        });
       }
       else
       {
-        $('#epi_year').html(html); 
+        $('#epi_year').html(html);
       }
     });
 
     $('#epi_year').on('change',function()
-    {//change upazila to display all union
+    {//change subdistrict to display all union
       var epi_yearID = $(this).val();
       if(epi_yearID)
       {
@@ -133,11 +133,11 @@
           {
             $('#center').html(html);
           }
-        }); 
+        });
       }
       else
       {
-        $('#center').html(html); 
+        $('#center').html(html);
       }
     });
 	 });
@@ -163,8 +163,8 @@
     </div>
     <br>
     <div class="col">
-      <h5>Upazila</h5>
-      <select class="selectpicker form-control" name="upazila" id="upazila" standard title="Select Division First" autofocus="autofocus" required>
+      <h5>SubDistrict</h5>
+      <select class="selectpicker form-control" name="subdistrict" id="subdistrict" standard title="Select Division First" autofocus="autofocus" required>
         <option value="">Select Division First</option>
       </select>
     </div>

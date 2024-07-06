@@ -35,7 +35,8 @@
 						$union_id;
 						$union_id = $_SESSION['union_id'];
 						
-						$query = "SELECT DISTINCT schedule_id FROM epi_center WHERE epi_year = $epi_year AND union_id = $union_id";
+						$query = "SELECT DISTINCT schedule_id FROM epi_center WHERE 
+                         = $epi_year AND union_id = $union_id";
 						$query_run = mysqli_query($con, $query);
 
 						while ($row = $query_run->fetch_assoc())

@@ -1,0 +1,65 @@
+INSERT INTO epi_center_temp (center_id, ward_no, sub_block_name, center_name, from_house, to_house, center_type, ha_details, union_id, schedule_id, epi_year) 
+VALUES 
+(1, 10, 'Sub Block A', 'Central Hospital Yaounde', 1, 50, 'Hospital', 'Dr. John Doe', 1, 1, 2024),
+(2, 20, 'Sub Block B', 'Laquintinie Hospital', 51, 100, 'Hospital', 'Dr. Jane Smith', 2, 1, 2024),
+(3, 30, 'Sub Block C', 'Bamenda Regional Hospital', 101, 150, 'Regional', 'Dr. Michael Lee', 3, 1, 2024),
+(4, 40, 'Sub Block D', 'Buea Regional Hospital', 151, 200, 'Regional', 'Dr. Sarah Johnson', 4, 1, 2024);
+
+INSERT INTO epi_schedule (center_id, ward_no, sub_block_name, center_name, from_house, to_house, center_type, ha_details, union_id, schedule_id, epi_year_ec, dateID, jan_date, feb_date, mar_date, apr_date, may_date, jun_date, jul_date, aug_date, sep_date, oct_date, nov_date, dec_date, ward_id, epi_year_es)
+VALUES (1, '1', 'Sub Block A', 'Central Hospital Yaounde', '1', '50', 'Hospital', 'HA 1 Details', 1, 1, 2024, 1, '2024-01-01', '2024-02-01', '2024-03-01', '2024-04-01', '2024-05-01', '2024-06-01', '2024-07-01', '2024-08-01', '2024-09-01', '2024-10-01', '2024-11-01', '2024-12-01', 1, 2024);
+
+INSERT INTO epi_schedule_temp_year (center_id, ward_no, sub_block_name, center_name, from_house, to_house, center_type, ha_details, union_id, schedule_id, epi_year_ec, dateID, jan_date, feb_date, mar_date, apr_date, may_date, jun_date, jul_date, aug_date, sep_date, oct_date, nov_date, dec_date, ward_id, epi_year_es)
+VALUES (1, '1', 'Sub Block A', 'Central Hospital Yaounde', '1', '50', 'Hospital', 'HA 1 Details', 1, 1, 2024, 1, '2024-01-01', '2024-02-01', '2024-03-01', '2024-04-01', '2024-05-01', '2024-06-01', '2024-07-01', '2024-08-01', '2024-09-01', '2024-10-01', '2024-11-01', '2024-12-01', 1, 2024);
+
+INSERT INTO epi_center_temp_year (center_id, ward_no, sub_block_name, center_name, from_house, to_house, center_type, ha_details, union_id, schedule_id, epi_year)
+VALUES (1, '1', 'Sub Block A', 'Central Hospital Yaounde', '1', '50', 'Hospital', 'HA 1 Details', 1, 1, 2024);
+
+CREATE TABLE child_registration_details (
+    epic_id INT PRIMARY KEY,
+    ward_no INT,
+    reg_no INT,
+    birth_certificate_no VARCHAR(50),
+    center_name VARCHAR(100),
+    reg_date DATE,
+    name VARCHAR(100),
+    gender VARCHAR(10),
+    date_of_birth DATE,
+    mother_name VARCHAR(100),
+    father_name VARCHAR(100),
+    house_road_no VARCHAR(100),
+    village VARCHAR(100),
+    subdistrict_name VARCHAR(100),
+    district_name VARCHAR(100),
+    union_name VARCHAR(100),
+    sub_block_name VARCHAR(100),
+    ha_name VARCHAR(100),
+    ha_contact VARCHAR(15),
+    bcg_receive_date DATE,
+    bcg_comment TEXT,
+    penta1_receive_date DATE,
+    penta1_comment TEXT,
+    penta2_receive_date DATE,
+    penta2_comment TEXT,
+    penta3_receive_date DATE,
+    penta3_comment TEXT,
+    bopv1_receive_date DATE,
+    bopv1_comment TEXT,
+    bopv2_receive_date DATE,
+    bopv2_comment TEXT,
+    bopv3_receive_date DATE,
+    bopv3_comment TEXT,
+    pcv1_receive_date DATE,
+    pcv1_comment TEXT,
+    pcv2_receive_date DATE,
+    pcv2_comment TEXT,
+    pcv3_receive_date DATE,
+    pcv3_comment TEXT,
+    ipv1_receive_date DATE,
+    ipv1_comment TEXT,
+    ipv2_receive_date DATE,
+    ipv2_comment TEXT,
+    mr1_receive_date DATE,
+    mr1_comment TEXT,
+    mr2_receive_date DATE,
+    mr2_comment TEXT
+);

@@ -35,10 +35,10 @@
 					?>
 					<?php
 						global $union_id;
-						$upazila_id;
-						$upazila_id = $_SESSION['upazila_id'];
-						
-						$query_union = "SELECT * FROM union_council WHERE upazila_id = $upazila_id";
+						$subdistrict_id;
+						$subdistrict_id = $_SESSION['subdistrict_id'];
+
+						$query_union = "SELECT * FROM union_council WHERE subdistrict_id = $subdistrict_id";
 						$query_union_run = mysqli_query($con, $query_union);
 
 						echo "<form method='post' action=''>";
@@ -51,7 +51,7 @@
 						echo "</select>";
 						echo '<br><button class="btn btn-primary" type="submit" name="submit_union">NEXT</button>';
 						echo "&nbsp;&nbsp;&nbsp;&nbsp;";
-						echo '<a class="btn btn-warning" href="../print_schedule/upazila_selection.php">PREVIOUS</a>';
+						echo '<a class="btn btn-warning" href="../print_schedule/subdistrict_selection.php">PREVIOUS</a>';
 						echo '</form>';
 
 						if(isset($_POST["submit_union"]))
@@ -62,7 +62,7 @@
 						<script type="text/javascript">
 		    				window.location = "../print_schedule/year_selection.php";
 						</script>
-					<?php 
+					<?php
 						}
 					?>
 		            </div>

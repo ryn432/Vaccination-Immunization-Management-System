@@ -5,7 +5,7 @@ require_once('../load.php');
 
 <?php
 // Checkin What level user has permission to view this page
-page_require_level(3);
+;
 //pull out all user form database
 $all_users = find_all_user();
 ?>
@@ -27,8 +27,8 @@ if(isset($_POST['next']))
 	$sqlThree_SW="TRUNCATE TABLE sw_schedule_w3";
 	$result_sqlThree_SW = mysqli_query($conn, $sqlThree_SW);
 
-	for ($i=0; $i<9 ; $i++) 
-	{ 
+	for ($i=0; $i<9 ; $i++)
+	{
 		//SW Ward 1+2+3 Creation
 		$sqlWard1_SW = "INSERT INTO sw_schedule_w1 (sw_jan, sw_feb, sw_mar, sw_apr, sw_may, sw_jun, sw_jul, sw_aug, sw_sep, sw_oct, sw_nov, sw_dec, ward_id, epi_year, schedule_id) VALUES (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2)";
 		$result_sqlWard1_SW = mysqli_query($conn, $sqlWard1_SW);
@@ -42,7 +42,7 @@ if(isset($_POST['next']))
 ?>
 	<script type="text/javascript">
 		window.location = "../schedule_info/sw_year.php";
-	</script> 
+	</script>
 <?php
 }
 ?>

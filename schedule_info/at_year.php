@@ -25,7 +25,7 @@ $all_users = find_all_user();
               	<article>
               	You are going to create/rechange Automated EPI Schedule for <strong>Saturday-Tuesday</strong>
               	Please select the year from the drop down menu for creating/rechanging EPI Schedule for Sunday-Wednesday session.
-              	Ignore this line if you are rechanging, If you are creating schedule for the first time select <strong>Year 2018</strong> otherwise select any year from the drop down menu.
+              	Ignore this line if you are rechanging, If you are creating schedule for the first time select <strong>Year 2024</strong> otherwise select any year from the drop down menu.
               </article>
               </h4>
               <br>

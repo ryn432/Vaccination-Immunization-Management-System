@@ -3,7 +3,7 @@ require_once('../load.php');
 /*--------------------------------------------------------------*/
 /* Function for find all database table rows by table name
 /*--------------------------------------------------------------*/
-function find_all($table) 
+function find_all($table)
 {
    global $db;
    if(tableExists($table))
@@ -72,7 +72,7 @@ function tableExists($table)
 {
   global $db;
   $table_exit = $db->query('SHOW TABLES FROM '.DB_NAME.' LIKE "'.$db->escape($table).'"');
-  if($table_exit) 
+  if($table_exit)
   {
     if($db->num_rows($table_exit) > 0)
       return true;
@@ -84,7 +84,7 @@ function tableExists($table)
 /* Login with the data provided in $_POST,
 /* coming from the login form.
 /*--------------------------------------------------------------*/
-function authenticate($username='', $password='') 
+function authenticate($username='', $password='')
 {
   global $db;
   $username = $db->escape($username);
@@ -166,7 +166,7 @@ function find_by_groupLevel($level)
   return($db->num_rows($result) === 0 ? true : false);
 }
 /*--------------------------------------------------------------*/
-/* Function for cheaking which user level has access to page
+/* Function for checking which user level has access to page
 /*--------------------------------------------------------------*/
 function page_require_level($require_level)
 {
@@ -178,7 +178,7 @@ function page_require_level($require_level)
     $session->msg('d','Please login...');
     redirect('../main/index.php', false);
   //if Group status Deactive
-  elseif($login_level['group_status'] === '0'):
+  //elseif($login_level['group_status'] === '0'):
     $session->msg('d','This level user has been band!');
     redirect('../main/home.php',false);
   //cheackin log in User level and Require level is Less than or equal to

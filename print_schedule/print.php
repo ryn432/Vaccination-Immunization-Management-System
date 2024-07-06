@@ -23,7 +23,7 @@ if (mysqli_connect_errno())
 	$epi_year = $_SESSION['epi_year'];
 
 	//query for collecting information
-	$query_details_information = "SELECT division.division_name, district.district_name, upazila.upazila_name, union_council.union_name FROM division JOIN district ON district.division_id = division.division_id JOIN upazila ON upazila.district_id = district.district_id JOIN union_council ON union_council.upazila_id = upazila.upazila_id WHERE union_council.union_id = $union_id";
+	$query_details_information = "SELECT division.division_name, district.district_name, subdistrict.subdistrict_name, union_council.union_name FROM division JOIN district ON district.division_id = division.division_id JOIN subdistrict ON subdistrict.district_id = district.district_id JOIN union_council ON union_council.subdistrict_id = subdistrict.subdistrict_id WHERE union_council.union_id = $union_id";
 	$query_details_information_run = mysqli_query($con, $query_details_information);
 
 	//query for fetching session
@@ -32,15 +32,15 @@ if (mysqli_connect_errno())
 
 	while ($row = $query_session_run->fetch_assoc())
 	{
-		if ($row['schedule_id'] == 1) 
+		if ($row['schedule_id'] == 1)
 		{
 			$session_day = "Mon-Thu";
 		}
-		elseif ($row['schedule_id'] == 2) 
+		elseif ($row['schedule_id'] == 2)
 		{
 			$session_day = "Sun-Wed";
 		}
-		elseif ($row['schedule_id'] == 3) 
+		elseif ($row['schedule_id'] == 3)
 		{
 			$session_day = "Sat-Tue";
 		}
@@ -55,12 +55,12 @@ if (mysqli_connect_errno())
     <div class="col-lg-12">
       	<div class="table-responsive" id="div_print">
     		<div class="table table-sm" align='center'>
-      			<h4>Ward Based Session Plan [Upazilla]</h4>
-      			<small> 
+      			<h4>Ward Based Session Plan [SubDistrict]</h4>
+      			<small>
       				<?php while ($row = $query_details_information_run->fetch_assoc())
 						{
 							echo "<strong>Union: </strong>" . $row['union_name'];
-							echo ".....<strong>Upazila: </strong>" . $row['upazila_name'];
+							echo ".....<strong>SubDistrict: </strong>" . $row['subdistrict_name'];
 							echo ".....<strong>District: </strong>" . $row['district_name'];
 							echo ".....<strong>Division: </strong>" . $row['division_name'];
 						};
@@ -69,7 +69,7 @@ if (mysqli_connect_errno())
 					?>
 				</small>
 				<?php
-				if (mysqli_num_rows($query_schedule_run) > 0) 
+				if (mysqli_num_rows($query_schedule_run) > 0)
         		{
         		?>
 				<table class="table table-bordered table-striped" width="100%">
@@ -97,9 +97,9 @@ if (mysqli_connect_errno())
             		</tr>
         		</thead>
 				<?php
-            	while ($row = mysqli_fetch_array($query_schedule_run)) 
+            	while ($row = mysqli_fetch_array($query_schedule_run))
             	{
-        		?>    
+        		?>
                 <tbody>
 	                <tr style="font-size: 10px">
 	                    <td class="text-center"><?php  echo $row['ward_no']; ?></td>
@@ -127,8 +127,8 @@ if (mysqli_connect_errno())
 	            ?>
             	</tbody>
     			</table>
-        		<?php 
-    			} 
+        		<?php
+    			}
     			?>
     			<p class="text-left">
     				<small>
@@ -148,14 +148,14 @@ if (mysqli_connect_errno())
     					<strong>Name: </strong>..................................................
     					<strong>Sign: </strong>
     					........................... MT[EPI],
-    					Upazila Health Complex
+    					SubDistrict Health Complex
     				</small>
     				<small>
     					<br>
     					<strong>Name: </strong>..................................................
     					<strong>Sign: </strong>
     					........................... UHOP,
-    					Upazila Health Complex
+    					SubDistrict Health Complex
     				</small>
     			</p>
     		</div>
@@ -177,8 +177,8 @@ if (mysqli_connect_errno())
 		if (style.styleSheet)
 		{
   			style.styleSheet.cssText = css;
-		} 
-		else 
+		}
+		else
 		{
   			style.appendChild(document.createTextNode(css));
 		}

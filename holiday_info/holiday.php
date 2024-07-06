@@ -43,7 +43,7 @@ if(isset($_POST['update']))
 {
 	$sqlDeleteTable = "DELETE FROM holiday_final WHERE holiday_year = $year";
 	$resultDeleteTable = mysqli_query($conn, $sqlDeleteTable);
-    
+
     $sqlCopyTable = "INSERT INTO holiday_final (holiday_name,
     holiday_date, holiday_month, holiday_year) SELECT holiday_name, holiday_date, holiday_month, holiday_year FROM holiday_events WHERE holiday_year = $year";
     $resultCopyTable = mysqli_query($conn, $sqlCopyTable);
@@ -54,7 +54,7 @@ if(isset($_POST['update']))
 <head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 		<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-		<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>		
+		<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
 		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
@@ -70,13 +70,13 @@ if(isset($_POST['update']))
 
     <h2 class="text-center">
     	<?php
-    	if ($year == null || $year == '') 
+    	if ($year == null || $year == '')
     	{
     		echo "No Govt. Holiday Schedule Found";
     	}
     	else
     		echo "Govt. Holiday Schedule - " .$year;
-    	?>	
+    	?>
     </h2>
     <hr>
 			<div class="outer-scontainer">
@@ -168,7 +168,7 @@ if(isset($_POST['update']))
                     </select>
                     <br />
                     <label>Enter Year</label>
-                    	<input type="number" name="holiday_year" id="holiday_year" class="form-control" min="2018" max="9999">
+                    	<input type="number" name="holiday_year" id="holiday_year" class="form-control" min="2024" max="9999">
                     <br />
 				</div>
 				<div class="modal-footer">
@@ -190,7 +190,7 @@ $(document).ready(function(){
 		$('#action').val("Add");
 		$('#operation').val("Add");
 	});
-	
+
 	var dataTable = $('#user_data').DataTable({
 		"processing":true,
 		"serverSide":true,
@@ -236,7 +236,7 @@ $(document).ready(function(){
 			alert("All Fields are Required");
 		}
 	});
-	
+
 	$(document).on('click', '.update', function(){
 		var user_id = $(this).attr("id");
 		$.ajax({
@@ -258,7 +258,7 @@ $(document).ready(function(){
 			}
 		})
 	});
-	
+
 	$(document).on('click', '.delete', function(){
 		var user_id = $(this).attr("id");
 		if(confirm("Are you sure you want to delete this?"))
@@ -276,7 +276,7 @@ $(document).ready(function(){
 		}
 		else
 		{
-			return false;	
+			return false;
 		}
 	});
 });

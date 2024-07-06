@@ -23,7 +23,7 @@
               	You are going to rechange all EPI Center Session Schedule from your chosen year that you will select.
               	Please select the year from the drop down menu for rechanging EPI Center Session Schedule.
               	<br><br>
-              	<strong>Noted That,</strong> All the EPI Center Information will be updated based on selected year schedule. Session Schedule will be remain same. 
+              	<strong>Noted That,</strong> All the EPI Center Information will be updated based on selected year schedule. Session Schedule will be remain same.
               </article>
               </h4>
               <br>
@@ -45,7 +45,7 @@
 
 				if(isset($_POST["submit"]))
 				{
-				 
+
 				$epi_year=$_POST["epi_year"];
 				echo "<form method='post' action=''>";
 
@@ -100,13 +100,13 @@
 				<script type="text/javascript">
     				window.location = "../year_wise_scheduler/epi_thanks.php";
 				</script>
-				<?php 
+				<?php
 				echo "</from>";
 				}
 				else
 				{
-				    $epi_year=2018;
-				}	
+				    $epi_year=2024;
+				}
 			?>
             </div>
           </div>

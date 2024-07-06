@@ -1,4 +1,4 @@
-<?php
+<?php 
 $page_title = 'Add User';
 require_once('../load.php');
 page_require_level(1);
