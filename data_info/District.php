@@ -20,10 +20,17 @@ if (isset($_POST["import"]))
     {
         $file = fopen($fileName, "r");
         fgetcsv($file);
-        while (($column = fgetcsv($file, 10000, ",")) !== FALSE) 
+        $stmt = mysqli_prepare($conn, "INSERT into district (district_id,district_name,division_id) values (?, ?, ?)");
+        $districtId = "";
+        $districtName = "";
+        $divisionId = "";
+        mysqli_stmt_bind_param($stmt, "sss", $districtId, $districtName, $divisionId);
+        while (($column = fgetcsv($file, 1000000, ",")) !== FALSE) 
         {
-            $sqlInsert = "INSERT into district (district_id,district_name,division_id) values ('" . $column[0] . "','" . $column[1] . "','" . $column[2] . "')";
-            $result = mysqli_query($conn, $sqlInsert);
+            $districtId = $column[0];
+            $districtName = $column[1];
+            $divisionId = $column[2];
+            $result = mysqli_stmt_execute($stmt);
             
             if (!empty($result)) 
             {
@@ -36,6 +43,7 @@ if (isset($_POST["import"]))
                 $message = "There is a problem to import CSV data.";
             }
         }
+        mysqli_stmt_close($stmt);
     }
 }
 ?>
@@ -75,7 +83,7 @@ if (isset($_POST["import"]))
                             <tr>
                                 <th class="text-left" width="20%">District ID</th>
                                 <th class="text-left" width="20%">District Name</th>
-                                <th class="text-left" width="20%">Division ID</th>
+                                <th class="text-left" width="20%">Region ID</th>
                             </tr>
                         </thead>
                         <?php

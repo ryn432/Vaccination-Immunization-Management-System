@@ -20,7 +20,7 @@
 		            <div class="container">
 		              <h4 class="display-3">
 		              	<article>
-		              	Please select a <strong>Division...</strong>
+		              	Please select a <strong>Region...</strong>
 		              </article>
 		              </h4>
 		              <br>

@@ -4,7 +4,7 @@
 ?>
 <?php
 // Checkin What level user has permission to view this page
- ;
+ page_require_level(3);
 //pull out all user form database
  $all_users = find_all_user();
 ?>
@@ -20,7 +20,7 @@
 		            <div class="container">
 		              <h4 class="display-3">
 		              	<article>
-		              	Please select a <strong>Division...</strong>
+		              	Please select a <strong>Region...</strong>
 		              </article>
 		              </h4>
 		              <br>
@@ -57,7 +57,7 @@
 						<script type="text/javascript">
 		    				window.location = "../print_schedule/district_selection.php";
 						</script>
-					<?php
+					<?php 
 						}
 					?>
 		            </div>

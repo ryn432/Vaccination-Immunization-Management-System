@@ -39,7 +39,7 @@
                                         echo $row[0];
                                       ?>
                                     </div>
-                                    <div>Divisions</div>
+                                    <div>Regions</div>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <!-- <div class="col-lg-3 col-md-6">
                     <div class="panel panel-yellow">
                         <div class="panel-heading">
                             <div class="row">
@@ -91,17 +91,17 @@
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">
                                       <?php
-                                        $conn = mysqli_connect("localhost", "root", "", "central_db");
-                                        $result = $db->query("SELECT COUNT(*) FROM subdistrict");
-                                        $row = $result->fetch_row();
-                                        echo $row[0];
+                                        //$conn = mysqli_connect("localhost", "root", "", "central_db");
+                                        //$result = $db->query("SELECT COUNT(*) FROM upazila");
+                                        //$row = $result->fetch_row();
+                                        //echo $row[0];
                                       ?>
                                     </div>
-                                    <div>Sub-Districts</div>
+                                    <div>Upazilas</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="./data_info/Upazilla.php">
+                        <a href="../data_info/Upazilla.php">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -109,7 +109,7 @@
                             </div>
                         </a>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-red">
                         <div class="panel-heading">

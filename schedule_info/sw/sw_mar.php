@@ -31,7 +31,7 @@ $dayFriday = "Friday";
 $month = 3;
 
 //value fetch from DB
-/*$epi_year = 2024;*/
+/*$epi_year = 2018;*/
 
 //value fetch from DB
 $eventmonth = 3;

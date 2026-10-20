@@ -209,7 +209,7 @@ echo "</from>";
 }
 else
 {
-    $epi_year=2024;
+    $epi_year=2018;
 }
 //SELECT EPI YEAR END
 

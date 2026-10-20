@@ -1,5 +1,207 @@
 District ID,District Name,Division ID
-1,Yaounde,4
-2,Douala,3
-3,Bamenda,1
-4,Buea,2
+1,Bankim,1
+2,Banyo,1
+3,Belel,1
+4,Dang,1
+5,Djohong,1
+6,Meiganga,1
+7,Ngaoundal,1
+8,Ngaoundere Rural,1
+9,Ngaoundere Urbain,1
+10,Tibati,1
+11,Tignere,1
+12,Akonolinga,2
+13,Awae,2
+14,Ayos,2
+15,Bafia,2
+16,Biyem Assi,2
+17,Cite Verte,2
+18,Djoungolo,2
+19,Ebebda,2
+20,Efoulan,2
+21,Elig Mfomo,2
+22,Eseka,2
+23,Esse,2
+24,Evodoula,2
+25,Mbalmayo,2
+26,Mbandjock,2
+27,Mbankomo,2
+28,Mfou,2
+29,Monatele,2
+30,Mvog-Ada,2
+31,Nanga Eboko,2
+32,Ndikinimeki,2
+33,Ngog Mapubi,2
+34,Ngoumou,2
+35,Nkolafamba,2
+36,Nkolbisson,2
+37,Nkolndongo,2
+38,Ntui,2
+39,Obala,2
+40,Odza,2
+41,Okola,2
+42,"Sa'a",2
+43,Soa,2
+44,Yoko,2
+45,Abong Mbang,3
+46,Batouri,3
+47,Belabo,3
+48,Bertoua,3
+49,Betare Oya,3
+50,Doume,3
+51,Garoua Boulai,3
+52,Kette,3
+53,Lomie,3
+54,Mbang,3
+55,Messamena,3
+56,Moloundou,3
+57,Ndelele,3
+58,Nguelemendouka,3
+59,Yokadouma,3
+60,Bogo,4
+61,Bourha,4
+62,Fotokol,4
+63,Gazawa,4
+64,Goulfey,4
+65,Guere,4
+66,Guidiguis,4
+67,Hina,4
+68,Kaele,4
+69,Kar Hay,4
+70,Kolofata,4
+71,Kousseri,4
+72,Koza,4
+73,Mada,4
+74,Maga,4
+75,Makary,4
+76,Maroua 1,4
+77,Maroua 2,4
+78,Maroua 3,4
+79,Meri,4
+80,Mindif,4
+81,Mogode,4
+82,Mokolo,4
+83,Mora,4
+84,Moulvoudaye,4
+85,Moutourwa,4
+86,Mozogo,4
+87,Pette,4
+88,Roua,4
+89,Tokombere,4
+90,Vele,4
+91,Waza,4
+92,Yagoua,4
+93,Abo,5
+94,Bangue,5
+95,Boko,5
+96,Bonassama,5
+97,Cite Des Palmiers,5
+98,Deido,5
+99,Dibombari,5
+100,Edea,5
+101,Japoma,5
+102,Logbaba,5
+103,Loum,5
+104,Manjo,5
+105,Manoka,5
+106,Mbanga,5
+107,Melong,5
+108,Ndom,5
+109,New Bell,5
+110,Ngambe,5
+111,Njombe Penja,5
+112,Nkondjock,5
+113,Nkongsamba,5
+114,Nylon,5
+115,Pouma,5
+116,Yabassi,5
+117,Bibemi,6
+118,Figuil,6
+119,Garoua 1,6
+120,Garoua 2,6
+121,Gaschiga,6
+122,Golombe,6
+123,Guider,6
+124,Lagdo,6
+125,Mayo Oulo,6
+126,Ngong,6
+127,Pitoa,6
+128,Poli,6
+129,Rey Bouba,6
+130,Tchollire,6
+131,Touboro,6
+132,Ako,7
+133,Bafut,7
+134,Bali,7
+135,Bamenda,7
+136,Bamenda 3,7
+137,Batibo,7
+138,Benakuma,7
+139,Fundong,7
+140,Kumbo East,7
+141,Kumbo West,7
+142,Mbengwi,7
+143,Misaje,7
+144,Ndop,7
+145,Ndu,7
+146,Njikwa,7
+147,Nkambe,7
+148,Nwa,7
+149,Oku,7
+150,Santa,7
+151,Tubah,7
+152,Wum,7
+153,Bafang,8
+154,Baham,8
+155,Bamendjou,8
+156,Bandja,8
+157,Bandjoun,8
+158,Bangangte,8
+159,Bangourain,8
+160,Batcham,8
+161,Dschang,8
+162,Foumban,8
+163,Foumbot,8
+164,Galim,8
+165,Kekem,8
+166,Kouoptamo,8
+167,Malantouen,8
+168,Massangam,8
+169,Mbouda,8
+170,Mifi,8
+171,Penka Michel,8
+172,Santchou,8
+173,Ambam,9
+174,Djoum,9
+175,Ebolowa,9
+176,Kribi,9
+177,Kye ossi,9
+178,Lolodorf,9
+179,Meyomessala,9
+180,Mintom,9
+181,Mvangan,9
+182,Niete,9
+183,Olamze,9
+184,Sangmelima,9
+185,Zoetele,9
+186,Akwaya,10
+187,Bakassi,10
+188,Bamusso,10
+189,Bangem,10
+190,Buea,10
+191,Ekondo Titi,10
+192,Eyumodjock,10
+193,Fontem,10
+194,Konye,10
+195,Kumba-North,10
+196,Kumba-South,10
+197,Limbe,10
+198,Mamfe,10
+199,Mbonge,10
+200,Mundemba,10
+201,Muyuka,10
+202,Nguti,10
+203,Tiko,10
+204,Toko,10
+205,Tombel,10
+206,Wabane,10

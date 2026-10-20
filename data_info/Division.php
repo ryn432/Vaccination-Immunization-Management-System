@@ -1,5 +1,5 @@
 <?php
-$page_title = 'Upload Division';
+$page_title = 'Upload Region';
 require_once('../load.php');
 ?>
 <?php
@@ -48,7 +48,7 @@ if (isset($_POST["import"]))
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <h2 class="text-center">Import Division CSV File Into DB</h2>
+            <h2 class="text-center">Import Region CSV File Into DB</h2>
             <hr>
                 <div id="response" class="<?php if(!empty($type)) { echo $type . " display-block"; } ?>"><?php if(!empty($message)) { echo $message; } ?></div>
                 <div class="outer-scontainer">
@@ -56,7 +56,7 @@ if (isset($_POST["import"]))
                         <form class="col-lg-12" action="" method="post"
                 name="frmCSVImport" id="frmCSVImport" enctype="multipart/form-data">
                             <div class="input-row">
-                                <label class="control-label">Choose Division CSV File</label> <br>
+                                <label class="control-label">Choose Region CSV File</label> <br>
                                 <br><input type="file" name="file" id="file" accept=".csv"> <br>
                                 <button type="submit" id="submit" name="import" class="btn btn-primary">Import</button>
  					          <a href="../data_info/delete_division.php" class="btn btn-danger btn-danger" data-toggle="tooltip" title="Remove">Delete</a><br>
@@ -73,8 +73,8 @@ if (isset($_POST["import"]))
            <table id='DivisionTable' class="table table-bordered table-striped">
         <thead>
           <tr>
-                    <th class="text-left" width="20%">Division ID</th>
-                    <th class="text-left" width="20%">Division Name</th>
+                    <th class="text-left" width="20%">Region ID</th>
+                    <th class="text-left" width="20%">Region Name</th>
                 </tr>
             </thead>
 <?php

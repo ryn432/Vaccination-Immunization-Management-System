@@ -4,7 +4,7 @@
     <div class="input-group custom-search-form">
       <span class="h5">
         <?php
-        $date = new DateTime("now", new DateTimeZone('Africa/Douala') );
+        $date = new DateTime("now", new DateTimeZone('Asia/Dhaka') );
         echo $date->format('F j, Y | ');
         echo $date->format('l');
         echo $date->format(', g:i A');
