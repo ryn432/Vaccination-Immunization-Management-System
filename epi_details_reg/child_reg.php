@@ -24,14 +24,14 @@
 	$union_id = $_SESSION['union_id'];
 
 	//upazila name start
-	global $upazila_name;
-	$query_upazila_name = "SELECT upazila.upazila_name FROM upazila JOIN union_council ON union_council.upazila_id = upazila.upazila_id WHERE union_council.union_id = $union_id";
-	$query_upazila_name_run = mysqli_query($con, $query_upazila_name);
+	//global $upazila_name;
+	//$query_upazila_name = "SELECT upazila.upazila_name FROM upazila JOIN union_council ON union_council.upazila_id = upazila.upazila_id WHERE union_council.union_id = $union_id";
+	//$query_upazila_name_run = mysqli_query($con, $query_upazila_name);
 
-	while ($row = $query_upazila_name_run->fetch_assoc())
-	{
-		$upazila_name = $row['upazila_name'];
-	}
+	//while ($row = $query_upazila_name_run->fetch_assoc())
+	//{
+	//	$upazila_name = $row['upazila_name'];
+	//}
 	//upazila name ends
 
 	//district name start
@@ -79,8 +79,8 @@
 	//center & sub-block name ends
 
 	//ward no starts
-	$ward_no;
-	$ward_no = $_SESSION['ward_no'];
+	//$ward_no;
+	//$ward_no = $_SESSION['ward_no'];
 	//ward no ends
 
 	//username starts
@@ -157,11 +157,6 @@
 		    <label>Village</label>
 		    <input type="text" required class="form-control" name="village" placeholder="Enter Village Name">
 		</div>
-		<div class="col-lg-12">
-		<br>
-		    <label>Upazila</label>
-		    <input type="text" readonly class="form-control" name="upazila_name" placeholder="Something went wrong. Try again!" value="<?php echo (isset($upazila_name)) ? $upazila_name: ''?>">
-		</div>
 		<div class="col-lg-4">
 		<br>
 		    <label>District</label>
@@ -171,11 +166,6 @@
 		<br>
 		    <label>Union</label>
 		    <input type="text" readonly class="form-control" name="union_name" placeholder="Something went wrong. Try again!" value="<?php echo (isset($union_name)) ? $union_name: ''?>">
-		</div>
-		<div class="col-lg-4">
-		<br>
-		    <label>Ward No.</label>
-		    <input type="text" readonly class="form-control" name="ward_no" placeholder="Something went wrong. Try again!" value="<?php echo (isset($ward_no)) ? $ward_no: ''?>">
 		</div>
 		<div class="col-lg-8">
 		<br>
@@ -223,7 +213,7 @@
 				$ha_name 		= $_POST['ha_name'];
 				$ha_contact 	= $_POST['ha_contact'];
 
-				$sql_insert = "INSERT INTO child_registration_details (username, union_id, ward_no, epi_year, center_id, center_name, reg_no, reg_date, name, gender, date_of_birth, birth_certificate_no, mother_name, father_name, house_road_no, village, upazila_name, district_name, union_name, sub_block_name, ha_name, ha_contact) VALUES ('$username', '$union_id', '$ward_no', '$epi_year', '$center_id', '$center_name', '$reg_no', '$reg_date', '$name', '$gender', '$date_of_birth', '$birth_certificate_no', '$mother_name', '$father_name', '$house_road_no', '$village', '$upazila_name', '$district_name', '$union_name', '$sub_block_name', '$ha_name', '$ha_contact')";
+				$sql_insert = "INSERT INTO child_registration_details (username, union_id, epi_year, center_id, center_name, reg_no, reg_date, name, gender, date_of_birth, birth_certificate_no, mother_name, father_name, house_road_no, village, district_name, union_name, sub_block_name, ha_name, ha_contact) VALUES ('$username', '$union_id', '$epi_year', '$center_id', '$center_name', '$reg_no', '$reg_date', '$name', '$gender', '$date_of_birth', '$birth_certificate_no', '$mother_name', '$father_name', '$house_road_no', '$village', '$district_name', '$union_name', '$sub_block_name', '$ha_name', '$ha_contact')";
 				$sql_insert_run = mysqli_query($con, $sql_insert);
 
 				$_SESSION['epic_id'] = mysqli_insert_id($con);

@@ -79,9 +79,9 @@ if (isset($_POST["import"])) {
             <table id='unionTable' class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th class="text-left" width="20%">Union ID</th>
-                    <th class="text-left" width="20%">Union Name</th>
-                    <th class="text-left" width="20%">Upazila ID</th>
+                    <th class="text-left" width="20%">Facility ID</th>
+                    <th class="text-left" width="20%">Facility Name</th>
+                    <th class="text-left" width="20%">District ID</th>
                     
 
                 </tr>

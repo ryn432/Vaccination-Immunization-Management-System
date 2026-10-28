@@ -171,23 +171,40 @@ function find_by_groupLevel($level)
 function page_require_level($require_level)
 {
   global $session;
-  $current_user = current_user();
-  $login_level = find_by_groupLevel($current_user['user_level']);
-     //if user not login
-  if (!$session->isUserLoggedIn(true)):
-    $session->msg('d','Please login...');
+
+  // 1. Not logged in: stop before touching any user data
+  if (!$session->isUserLoggedIn(true)) {
+    $session->msg('d', 'Please login...');
     redirect('../main/index.php', false);
-  //if Group status Deactive
-  elseif($login_level['group_status'] === '0'):
-    $session->msg('d','This level user has been band!');
-    redirect('../main/home.php',false);
-  //cheackin log in User level and Require level is Less than or equal to
-  elseif($current_user['user_level'] <= (int)$require_level):
-    return true;
-  else:
-    $session->msg("d", "Sorry! you dont have permission to view the page.");
+    exit;
+  }
+
+  // 2. Logged in, but user record missing
+  $current_user = current_user();
+  if (!$current_user) {
+    $session->msg('d', 'Please login...');
+    redirect('../main/index.php', false);
+    exit;
+  }
+
+  $login_level = find_by_groupLevel($current_user['user_level']);
+
+  // 3. Group is deactivated
+  if ($login_level && $login_level['group_status'] === '0') {
+    $session->msg('d', 'This level user has been banned!');
     redirect('../main/home.php', false);
-  endif;
+    exit;
+  }
+
+  // 4. User level is within the required level
+  if ((int)$current_user['user_level'] <= (int)$require_level) {
+    return true;
+  }
+
+  // 5. No permission
+  $session->msg('d', 'Sorry! You dont have permission to view the page.');
+  redirect('../main/home.php', false);
+  exit;
 }
 
 ?>

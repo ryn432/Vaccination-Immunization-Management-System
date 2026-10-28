@@ -41,7 +41,7 @@ if(isset($_POST["division_id"]) && !empty($_POST["division_id"]))
     }
 }
 
-if(isset($_POST["district_id"]) && !empty($_POST["district_id"]))
+/*if(isset($_POST["district_id"]) && !empty($_POST["district_id"]))
 {
     //Get all upazila data
     $query = $mysqli->query("SELECT * FROM upazila WHERE district_id = ".$_POST['district_id']." ORDER BY upazila_name ASC");
@@ -63,12 +63,12 @@ if(isset($_POST["district_id"]) && !empty($_POST["district_id"]))
     {
         echo '<option value="">Upazila Not Available</option>';
     }
-}
+}*/
 
-if(isset($_POST["upazila_id"]) && !empty($_POST["upazila_id"]))
+if(isset($_POST["district_id"]) && !empty($_POST["district_id"]))
 {
     //Get all union data
-    $query = $mysqli->query("SELECT * FROM union_council WHERE upazila_id = ".$_POST['upazila_id']." ORDER BY union_name ASC");
+    $query = $mysqli->query("SELECT * FROM union_council WHERE district_id = ".$_POST['district_id']." ORDER BY union_name ASC");
 
     //Count total number of rows
     $rowCount = $query->num_rows;

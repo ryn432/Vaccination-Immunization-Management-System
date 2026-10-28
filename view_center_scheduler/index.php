@@ -40,15 +40,15 @@
             success:function(html)
             {
               $('#district').html(html);
-              $('#upazila').html('<option value="">Select District First</option>'); 
-              $('#union').html('<option value="">Select Upazila First</option>');
-              $('#epi_year').html('<option value="">Select Union First</option>');  
+             // $('#upazila').html('<option value="">Select District First</option>'); 
+              $('#union').html('<option value="">Select District First</option>');
+              $('#epi_year').html('<option value="">Select Facility First</option>');  
             }
           }); 
         }
         else
         {
-          $('#district').html('<option value="">Select Division First</option>');
+          $('#district').html('<option value="">Select Region First</option>');
           $('#upazila').html('<option value="">Select District First</option>');
         }
       });
@@ -150,7 +150,7 @@
 <hr>
     <div class="col">
       <h5>Region</h5>
-      <select name="division" id="division" data-live-search="true" class="chosen selectpicker form-control" autofocus="autofocus" required>
+      <select name="region" id="division" data-live-search="true" class="chosen selectpicker form-control" autofocus="autofocus" required>
         <option value="">Select Region</option>
       </select>
     </div>
@@ -161,25 +161,25 @@
         <option value="">Select Region First</option>
       </select>
     </div>
-    <br>
+   <!-- <br>
     <div class="col">
       <h5>Upazila</h5>
       <select class="selectpicker form-control" name="upazila" id="upazila" standard title="Select Region First" autofocus="autofocus" required>
         <option value="">Select Region First</option>
       </select>
-    </div>
+    </div> -->
     <br>
     <div class="col">
-      <h5>Union</h5>
+      <h5>Facility</h5>
       <select class="selectpicker form-control" name="union" id="union" standard title="Select Region First" autofocus="autofocus" required>
-        <option value="">Select Region First</option>
+        <option value="">Select District First</option>
       </select>
     </div>
     <br>
     <div class="col">
       <h5>Year</h5>
       <select class="selectpicker form-control" name="epi_year" id="epi_year" standard title="Select Region First" autofocus="autofocus" required>
-        <option value="">Select Region First</option>
+        <option value="">Select Union First</option>
       </select>
     </div>
   <br>

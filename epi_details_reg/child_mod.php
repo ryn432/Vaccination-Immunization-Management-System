@@ -18,7 +18,6 @@ $database = "central_db";
 
 //VARIABLES
 $epic_id;
-$ward_no;
 $reg_no;
 $birth_certificate_no;
 
@@ -31,7 +30,6 @@ $mother_name    = "";
 $father_name    = "";
 $house_road_no  = "";
 $village        = "";
-$upazila_name   = "";
 $district_name  = "";
 $union_name     = "";
 $sub_block_name = "";
@@ -96,7 +94,6 @@ function getPosts()
 {
     $posts = array();
     $posts[2]   = $_POST['epic_id'];
-    $posts[3]   = $_POST['ward_no'];
     $posts[6]   = $_POST['center_name'];
     $posts[7]   = $_POST['reg_no'];
     $posts[8]   = $_POST['reg_date'];
@@ -108,7 +105,6 @@ function getPosts()
     $posts[14]  = $_POST['father_name'];
     $posts[15]  = $_POST['house_road_no'];
     $posts[16]  = $_POST['village'];
-    $posts[17]  = $_POST['upazila_name'];
     $posts[18]  = $_POST['district_name'];
     $posts[19]  = $_POST['union_name'];
     $posts[20]  = $_POST['sub_block_name'];
@@ -163,7 +159,6 @@ if(isset($_POST['display_details']))
                 while($row = mysqli_fetch_array($search_Result))
                 {
                     $epic_id = $row['epic_id'];
-                    $ward_no = $row['ward_no'];
                     $reg_no = $row['reg_no'];
                     $birth_certificate_no = $row['birth_certificate_no'];
 
@@ -176,7 +171,6 @@ if(isset($_POST['display_details']))
                     $father_name = $row['father_name'];
                     $house_road_no = $row['house_road_no'];
                     $village = $row['village'];
-                    $upazila_name = $row['upazila_name'];
                     $district_name = $row['district_name'];
                     $union_name = $row['union_name'];
                     $sub_block_name = $row['sub_block_name'];
@@ -441,11 +435,6 @@ if(isset($_POST['update_details']))
         <br>
             <label>Village</label>
             <input type="text" readonly class="form-control" name="village" placeholder="No available data." value="<?php echo $village;?>">
-        </div>
-        <div class="col-lg-3">
-        <br>
-            <label>Upazila</label>
-            <input type="text" readonly class="form-control" name="upazila_name" placeholder="No available data." value="<?php echo $upazila_name;?>">
         </div>
         <div class="col-lg-3">
         <br>

@@ -151,31 +151,29 @@
                         <tbody>
                             <tr>
                                 <td>After Birth</td>
-                                <td>BCG</td>
-                                <td>Tuberculosis</td>
+                                <td>BCG, OPV 0 (oral polio vaccine)</td>
+                                <td>Tuberculosis, Poliomyelitis</td>
                             </tr>
+
                             <tr>
                                 <td>6 Weeks</td>
-                                <td>Penta-1, BOPV-1, PCV-1, IPV-1</td>
-                                <td rowspan="3">Diphtheria, Whooping Cough, Tetanus, Hepatitis B, Haemophilus Influenzae Type B, Poliomyelitis, Pneumococcal Pneumonia</td>
+                                <td>DTP-HepB-Hib 1 (pentavalent), OPV 1, PCV13 1 (pneumococcal conjugate), Rotavirus 1</td>
+                                <td>Diphtheria, tetanus, pertussis (whooping cough), hepatitis B, Haemophilus influenzae type b (meningitis, pneumonia), Poliomyelitis, Pneumococcal pneumonia, meningitis and sepsis, Rotavirus diarrhoea</td>
                             </tr>
                             <tr>
                                 <td>10 Weeks</td>
-                                <td>Penta-2, BOPV-2, PCV-2</td>
+                                <td>DTP-HepB-Hib 2, OPV 2, PCV13 2, Rotavirus 2</td>
+                                <td>Diphtheria, tetanus, pertussis, hepatitis B, Hib, Poliomyelitis, Pneumococcal disease,Rotavirus diarrhoea</td>
                             </tr>
                             <tr>
                                 <td>14 Weeks</td>
-                                <td>Penta-3, BOPV-3, PCV-3, IPV-2</td>
+                                <td>DTP-HepB-Hib 3, OPV 3, PCV13 3, IPV (inactivated polio vaccine)</td>
+                                <td>Diphtheria, tetanus, pertussis, hepatitis B, Hib, Poliomyelitis, Pneumococcal disease</td>
                             </tr>
                             <tr>
                                 <td>9 Mothns</td>
-                                <td>MR-1</td>
-                                <td>Ham, Rubella</td>
-                            </tr>
-                            <tr>
-                                <td>15 Months</td>
-                                <td>MR-2</td>
-                                <td>Ham, Rubella</td>
+                                <td>Measles-Rubella (MR), Yellow fever (YF)</td>
+                                <td>Measles, Rubella, Yellow fever</td>
                             </tr>
                         </tbody>
                     </table>

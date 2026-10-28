@@ -171,7 +171,7 @@ if (isset($_POST["import"]))
 
                 $sqlJoinEpiScheduleTemp="INSERT INTO epi_schedule_temp (center_id, ward_no, sub_block_name, center_name, from_house, to_house, center_type, ha_details, union_id, schedule_id, epi_year_ec, dateID, jan_date, feb_date, mar_date, apr_date, may_date, jun_date, jul_date, aug_date, sep_date, oct_date, nov_date, dec_date, ward_id, epi_year_es) SELECT epi_center.center_id, epi_center.ward_no, epi_center.sub_block_name, epi_center.center_name, epi_center.from_house, epi_center.to_house, epi_center.center_type, epi_center.ha_details, epi_center.union_id, epi_center.schedule_id, epi_center.epi_year, mr_schedule_final.mr_dateID, mr_schedule_final.mr_jan, mr_schedule_final.mr_feb, mr_schedule_final.mr_mar, mr_schedule_final.mr_apr, mr_schedule_final.mr_may, mr_schedule_final.mr_jun, mr_schedule_final.mr_jul, mr_schedule_final.mr_aug, mr_schedule_final.mr_sep, mr_schedule_final.mr_oct, mr_schedule_final.mr_nov, mr_schedule_final.mr_dec, mr_schedule_final.ward_id, mr_schedule_final.epi_year FROM epi_center JOIN mr_schedule_final ON epi_center.center_id = mr_schedule_final.mr_dateID WHERE mr_schedule_final.epi_year = $epi_year AND epi_center.union_id = $union_id AND epi_center.epi_year = $epi_year";
                 $resultSqlJoinEpiScheduleTemp = mysqli_query($conn, $sqlJoinEpiScheduleTemp);
-
+                    
                 //redirecting button information
                 echo "<form method='post' action='../data_info/epi_center_table_index.php'>";
                 echo "<strong>Monday-Thursday</strong> EPI Schedule Session is being created for Year ".$epi_year.". To view/modification <button type='submit' name='click_here' class='btn btn-warning btn-xs'>Click Here</button>";

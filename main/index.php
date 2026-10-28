@@ -10,9 +10,9 @@
   <div class="row">
     <br>
     <div class="text-center">
-    <img src="../libs/img/epi_logo.jpg" alt="epi_logo" height="100" width="97">
+    <img src="../libs/img/logo.png" alt="epi_logo" height="100" width="97">
     </div>
-    <h1 class="text-center">ICT Based EPI Micro-plan Admin Panel</h1>
+    <h1 class="text-center">Child Vaccination Tracker Admin Panel</h1>
     <hr>
     <div class="col-md-4 col-md-offset-4">
       <div class="login-panel panel panel-default">

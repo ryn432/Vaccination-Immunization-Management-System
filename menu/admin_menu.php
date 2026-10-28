@@ -35,16 +35,16 @@
           <span>Upload District List</span>
         </a>
       </li>
-      <li>
+    <!--  <li>
         <a href="../data_info/Upazilla.php">
           <i class="glyphicon glyphicon-upload"></i>
           <span>Upload Upazila List</span>
-        </a>
+        </a> -->
       </li>
       <li>
         <a href="../data_info/Union.php">
           <i class="glyphicon glyphicon-upload"></i>
-          <span>Upload Union List</span>
+          <span>Upload Facility List</span>
         </a>
       </li>
       <li>
@@ -179,12 +179,12 @@
       <span>User Management</span>
     </a>
   </li>
-  <li>
+  <!-- <li>
     <a href="../important_link/index.php">
       <i class="glyphicon glyphicon-star"></i>
       <span>Important Links</span>
     </a>
-  </li>
+  </li> -->
   <li>
     <a href="../report_bugs/index.php">
       <i class="glyphicon glyphicon-send"></i>

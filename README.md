@@ -14,7 +14,7 @@ For the front-end development HTML, CSS, Bootstrap, JavaScript, AJAX, jQuery, an
 
 
 
-https://github.com/Maliha-Tasnim/Vaccination-Programme-Maintenance-System/assets/40670215/f9454497-7efc-4cbf-8e18-89cd05928f13
+https://github.com/ryn432/Vaccination-Immunization-Management-System
 
 
 
@@ -29,8 +29,8 @@ https://github.com/Maliha-Tasnim/Vaccination-Programme-Maintenance-System/assets
 
 2. Clone the Repository: 
 
-            git clone https://github.com/Maliha-Tasnim/vaccination-programme-maintenance-system
-            cd vaccination-programme-maintenance-system
+            git clone https://github.com/ryn432/Vaccination-Immunization-Management-System
+            cd Vaccination-Immunization-Management-System
 
 3. Set Up XAMPP/WAMP (if not already installed):
 
@@ -59,7 +59,7 @@ https://github.com/Maliha-Tasnim/Vaccination-Programme-Maintenance-System/assets
 
 8. Rename the folder to vaccination-programme-maintenance-system (optional for shorter access URL).
 
-9. Open a web browser and navigate to http://localhost/vaccination-programme-maintenance-system.
+9. Open a web browser and navigate to http://localhost/Vaccination-Immunization-Management-System.
 
 10. Log in with the following credentials:
 

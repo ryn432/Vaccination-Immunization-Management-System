@@ -76,12 +76,6 @@
     </ul>
   </li>
   <li>
-    <a href="../important_link/index.php">
-      <i class="glyphicon glyphicon-star"></i>
-      <span>Important Links</span>
-    </a>
-  </li>
-  <li>
     <a href="../report_bugs/index.php">
       <i class="glyphicon glyphicon-send"></i>
       <span>Bugs & Reports</span>
