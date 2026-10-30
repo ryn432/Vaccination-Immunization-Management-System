@@ -11,137 +11,100 @@
 <?php include_once('../header.php'); ?>
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <script>
-    window.load=$( document ).ready(function() 
-    {
-      $.ajax(
-      {
-        type:'POST',
-        url:'../view_center_scheduler/epiInfoAjaxData.php',
-        success:function(html)
-        {
-          $('#division').html(html);
-        }
-      });	   
-		});  
-					
-		$( document ).ready(function() 
-    {
-			$('#division').on('change',function()
-      {//change function on division to display all district 
-        var divisionID = $(this).val();
-        if(divisionID)
-        {
-          $.ajax(
-          {
-            type:'POST',
-            url:'../view_center_scheduler/ajaxData.php',
-            data:'division_id='+divisionID,
-            success:function(html)
-            {
-              $('#district').html(html);
-             // $('#upazila').html('<option value="">Select District First</option>'); 
-              $('#union').html('<option value="">Select District First</option>');
-              $('#epi_year').html('<option value="">Select Facility First</option>');  
-            }
-          }); 
-        }
-        else
-        {
-          $('#district').html('<option value="">Select Region First</option>');
-          $('#upazila').html('<option value="">Select District First</option>');
+<script>
+$(document).ready(function () {
+
+  // 1. Load divisions on page load
+  $.ajax({
+    type: 'POST',
+    url: '../view_center_scheduler/epiInfoAjaxData.php',
+    success: function (html) {
+      $('#division').html(html);
+    }
+  });
+
+  // 2. Division -> District
+  $('#division').on('change', function () {
+    var divisionID = $(this).val();
+    if (divisionID) {
+      $.ajax({
+        type: 'POST',
+        url: '../view_center_scheduler/ajaxData.php',
+        data: 'division_id=' + divisionID,
+        success: function (html) {
+          $('#district').html(html);
+          $('#union').html('<option value="">Select District First</option>');
+          $('#epi_year').html('<option value="">Select Union First</option>');
+          $('#center').html('<option value="">Select Year First</option>');
         }
       });
-    
-    $('#district').on('change',function()
-    {//change district to display all upazila
-      var districtID = $(this).val();
-      if(districtID)
-      {
-        $.ajax(
-        {
-          type:'POST',
-          url:'../view_center_scheduler/ajaxData.php',
-          data:'district_id='+districtID,
-          success:function(html)
-          {
-            $('#upazila').html(html);
-          }
-        }); 
-      }
-      else
-      {
-        $('#upazila').html('<option value="">Select District First</option>');
-      }
-    });
+    } else {
+      $('#district').html('<option value="">Select Division First</option>');
+      $('#union').html('<option value="">Select District First</option>');
+      $('#epi_year').html('<option value="">Select Union First</option>');
+      $('#center').html('<option value="">Select Year First</option>');
+    }
+  });
 
-    $('#upazila').on('change',function()
-    {//change upazila to display all union
-      var upazilaID = $(this).val();
-      if(upazilaID)
-      {
-        $.ajax(
-        {
-          type:'POST',
-          url:'../view_center_scheduler/ajaxData.php',
-          data:'upazila_id='+upazilaID,
-          success:function(html)
-          {
-            $('#union').html(html);
-          }
-        }); 
-      }
-      else
-      {
-        $('#union').html('<option value="">Select Upazila First</option>'); 
-      }
-    });
+  // 3. District -> Union (replaces the old upazila step)
+  $('#district').on('change', function () {
+    var districtID = $(this).val();
+    if (districtID) {
+      $.ajax({
+        type: 'POST',
+        url: '../view_center_scheduler/ajaxData.php',
+        data: 'district_id=' + districtID,
+        success: function (html) {
+          $('#union').html(html);
+          $('#epi_year').html('<option value="">Select Union First</option>');
+          $('#center').html('<option value="">Select Year First</option>');
+        }
+      });
+    } else {
+      $('#union').html('<option value="">Select District First</option>');
+      $('#epi_year').html('<option value="">Select Union First</option>');
+      $('#center').html('<option value="">Select Year First</option>');
+    }
+  });
 
-    $('#union').on('change',function()
-    {//change upazila to display all union
-      var unionID = $(this).val();
-      if(unionID)
-      {
-        $.ajax(
-        {
-          type:'POST',
-          url:'../view_center_scheduler/ajaxData.php',
-          data:'union_id='+unionID,
-          success:function(html)
-          {
-            $('#epi_year').html(html);
-          }
-        }); 
-      }
-      else
-      {
-        $('#epi_year').html(html); 
-      }
-    });
+  // 4. Union -> EPI year
+  $('#union').on('change', function () {
+    var unionID = $(this).val();
+    if (unionID) {
+      $.ajax({
+        type: 'POST',
+        url: '../view_center_scheduler/ajaxData.php',
+        data: 'union_id=' + unionID,
+        success: function (html) {
+          $('#epi_year').html(html);
+          $('#center').html('<option value="">Select Year First</option>');
+        }
+      });
+    } else {
+      $('#epi_year').html('<option value="">Select Union First</option>');
+      $('#center').html('<option value="">Select Year First</option>');
+    }
+  });
 
-    $('#epi_year').on('change',function()
-    {//change upazila to display all union
-      var epi_yearID = $(this).val();
-      if(epi_yearID)
-      {
-        $.ajax(
-        {
-          type:'POST',
-          url:'../view_center_scheduler/ajaxData.php',
-          data:'epi_year='+epi_yearID,
-          success:function(html)
-          {
-            $('#center').html(html);
-          }
-        }); 
-      }
-      else
-      {
-        $('#center').html(html); 
-      }
-    });
-	 });
-	</script>
+  // 5. EPI year -> Center
+  $('#epi_year').on('change', function () {
+    var epiYear = $(this).val();
+    if (epiYear) {
+      $.ajax({
+        type: 'POST',
+        url: '../view_center_scheduler/ajaxData.php',
+        data: 'epi_year=' + epiYear,
+        success: function (html) {
+          $('#center').html(html);
+        }
+      });
+    } else {
+      $('#center').html('<option value="">Select Year First</option>');
+    }
+  });
+
+});
+</script>
 </head>
 <div id="page-wrapper">
   <div class="row">
