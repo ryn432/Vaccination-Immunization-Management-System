@@ -60,7 +60,7 @@
 							$_SESSION['district_id'] = $district_id;
 							?>
 						<script type="text/javascript">
-		    				window.location = "../print_schedule/upazila_selection.php";
+		    				window.location = "../print_schedule/union_selection.php";
 						</script>
 					<?php 
 						}

@@ -23,7 +23,7 @@ if (mysqli_connect_errno())
 	$epi_year = $_SESSION['epi_year'];
 
 	//query for collecting information
-	$query_details_information = "SELECT division.division_name, district.district_name, upazila.upazila_name, union_council.union_name FROM division JOIN district ON district.division_id = division.division_id JOIN upazila ON upazila.district_id = district.district_id JOIN union_council ON union_council.upazila_id = upazila.upazila_id WHERE union_council.union_id = $union_id";
+	$query_details_information = "SELECT division.division_name, district.district_name, union_council.union_name FROM division JOIN district ON district.division_id = division.division_id JOIN union_council ON union_council.district_id = district.district_id WHERE union_council.union_id = $union_id";
 	$query_details_information_run = mysqli_query($con, $query_details_information);
 
 	//query for fetching session
@@ -55,11 +55,11 @@ if (mysqli_connect_errno())
     <div class="col-lg-12">
       	<div class="table-responsive" id="div_print">
     		<div class="table table-sm" align='center'>
-      			<h4>Ward Based Session Plan [Upazilla]</h4>
+      			<h4>Health Area Based Session Plan</h4>
       			<small> 
       				<?php while ($row = $query_details_information_run->fetch_assoc())
 						{
-							echo "<strong>Union: </strong>" . $row['union_name'];
+							echo "<strong>Facility: </strong>" . $row['union_name'];
 							//echo ".....<strong>Upazila: </strong>" . $row['upazila_name'];
 							echo ".....<strong>District: </strong>" . $row['district_name'];
 							echo ".....<strong>Region: </strong>" . $row['division_name'];
@@ -132,7 +132,7 @@ if (mysqli_connect_errno())
     			?>
     			<p class="text-left">
     				<small>
-    					<strong>Co-Ordinator Details</strong>
+    					<strong>Focal Point Details</strong>
     					<br>
     					1. Name:....................................................
     					Designation:...................
@@ -147,15 +147,13 @@ if (mysqli_connect_errno())
     				<small>
     					<strong>Name: </strong>..................................................
     					<strong>Sign: </strong>
-    					........................... MT[EPI],
-    					Upazila Health Complex
+    					........................... PEV Focal Point / Responsable PEV du District
     				</small>
     				<small>
     					<br>
     					<strong>Name: </strong>..................................................
     					<strong>Sign: </strong>
-    					........................... UHOP,
-    					Upazila Health Complex
+    					........................... Médecin-Chef du District
     				</small>
     			</p>
     		</div>

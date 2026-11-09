@@ -126,7 +126,7 @@
                                         echo $row[0];
                                       ?>
                                     </div>
-                                    <div>Union Councils</div>
+                                    <div>Facilities</div>
                                 </div>
                             </div>
                         </div>

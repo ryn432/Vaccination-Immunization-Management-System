@@ -95,7 +95,7 @@ if (isset($_POST["import"])) {
                 <tr>
                     <td width="20%" class="text-left"><?php  echo $row['union_id']; ?></td>
                     <td width="20%" class="text-left"><?php  echo $row['union_name']; ?></td>
-                    <td width="20%" class="text-left"><?php  echo $row['upazila_id']; ?></td>
+                    <td width="20%" class="text-left"><?php  echo $row['district_id']; ?></td>
                 </tr>
                     <?php
                 }

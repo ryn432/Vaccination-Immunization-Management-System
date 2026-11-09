@@ -35,10 +35,10 @@
 					?>
 					<?php
 						global $union_id;
-						$upazila_id;
-						$upazila_id = $_SESSION['upazila_id'];
+						$district_id;
+						$district_id = $_SESSION['district_id'];
 						
-						$query_union = "SELECT * FROM union_council WHERE upazila_id = $upazila_id";
+						$query_union = "SELECT * FROM union_council WHERE district_id = $district_id";
 						$query_union_run = mysqli_query($con, $query_union);
 
 						echo "<form method='post' action=''>";
@@ -51,7 +51,7 @@
 						echo "</select>";
 						echo '<br><button class="btn btn-primary" type="submit" name="submit_union">NEXT</button>';
 						echo "&nbsp;&nbsp;&nbsp;&nbsp;";
-						echo '<a class="btn btn-warning" href="../print_schedule/upazila_selection.php">PREVIOUS</a>';
+						echo '<a class="btn btn-warning" href="../print_schedule/district_selection.php">PREVIOUS</a>';
 						echo '</form>';
 
 						if(isset($_POST["submit_union"]))
