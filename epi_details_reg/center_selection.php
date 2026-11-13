@@ -33,12 +33,12 @@
 						$username = $_SESSION['username'];
 						$union_id;
 						$union_id = $_SESSION['union_id'];
-						$ward_no;
-						$ward_no = $_SESSION['ward_no'];
+						//$ward_no;
+						//$ward_no = $_SESSION['ward_no'];
 						$epi_year;
 						$epi_year = $_SESSION['epi_year'];
 						
-						$query_center = "SELECT * FROM epi_schedule WHERE union_id = $union_id AND ward_no = $ward_no AND epi_year_ec = $epi_year AND epi_year_es = $epi_year";
+						$query_center = "SELECT * FROM epi_schedule WHERE union_id = $union_id AND epi_year_ec = $epi_year AND epi_year_es = $epi_year";
 						$query_center_run = mysqli_query($con, $query_center);
 
 						echo "<form method='post' action=''>";
